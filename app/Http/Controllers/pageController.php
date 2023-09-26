@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admission;
 use App\Models\Admission as ModelsAdmission;
 use App\Models\Course;
+use App\Models\Payment;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class pageController extends Controller
     }
 
     public function add_admission (){
-        return view('Admin.Admission.add_admission');
+        $courses= Course::latest()->get();
+        return view('Admin.Admission.add_admission', compact('courses'));
     }
     public function admission_store(Request $request){
     //    dd($request->all());
@@ -37,9 +39,6 @@ class pageController extends Controller
             'country' => $request->country,
             'which_country' => $request->which_country,
             'phone' => $request->phone,
-            'email' => $request->email,
-            'password' => $request->password,
-            // 'password_confirmation' => $request->password_confirmation,
             'street' => $request->street,
             'street_2' => $request->street_2,
             'city' => $request->city,
@@ -55,7 +54,6 @@ class pageController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
-            // 'password_confirmation' => $request->password_confirmation,
             'role_id' => $request->role_id,
         ]);
         return back();
@@ -65,8 +63,9 @@ class pageController extends Controller
         return view('Admin.Admission.view_admissions', compact('admissions'));
     }
     public function edit_admission(Admission $admission){
+        $courses= Course::latest()->get();
         // dd($student);
-        return view('Admin.Admission.edit_admission', compact('admission'));
+        return view('Admin.Admission.edit_admission', compact('admission','courses'));
     }
     public function update_admission(Admission $admission, Request $request){
         
@@ -86,9 +85,6 @@ class pageController extends Controller
             'country' => $request->country,
             'which_country' => $request->which_country,
             'phone' => $request->phone,
-            'email' => $request->email,
-            'password' => $request->password,
-            'password_confirmation' => $request->password_confirmation,
             'street' => $request->street,
             'street_2' => $request->street_2,
             'city' => $request->city,
@@ -161,6 +157,10 @@ class pageController extends Controller
         return redirect('view_teachers');
         
     }
+    public function delete_teacher(Teacher $teacher){
+        $teacher->delete();
+        return redirect('view_teachers');
+    }
 
 
     public function add_course(){
@@ -191,4 +191,36 @@ class pageController extends Controller
         $course->delete();
         return redirect('view_courses');
     }
+
+
+    public function add_payment(Admission $admission){
+        return view('Admin.Payment.add_payment',compact('admission'));
+    }
+    public function payment_store(Admission $admission,Request $request){
+   
+        Payment::create([
+            'admission_id'=>$admission->id,
+            'money'=>$request->money,
+        ]);
+        return redirect('view_payments'); 
+    }
+    public function view_payments(){
+       $payments=Payment::latest()->get();
+       return view('Admin.Payment.view_payments', compact('payments'));
+    }
+    public function edit_payment(Payment $payment){
+        return view('Admin.Payment.edit_payment', compact('payment'));
+    }
+    public function update_payment(Payment $payment, Request $request){
+        $payment->update([
+            'money'=>$request->money,
+        ]);
+        return redirect('view_payments');
+    }
+    public function delete_payment(Payment $payment){
+        $payment->delete();
+        return redirect('view_payments');
+    }
+
+    
 }
