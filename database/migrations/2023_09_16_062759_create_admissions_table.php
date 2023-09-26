@@ -39,6 +39,7 @@ return new class extends Migration
             $table->string('relationship');
             $table->string('prs_email');
             $table->string('prs_phone');
+            $table->string('image');
             $table->timestamps();
         });
     }

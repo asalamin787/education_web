@@ -35,7 +35,7 @@
 
                                 <td>
                                     <a href="{{route('edit_teacher', $teacher)}}" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="{{route('view_teachers')}}" class="btn btn-sm btn-danger"><i class="la la-trash-o"></i>Delete</a>
+                                    <a href="{{route('delete_teacher', $teacher)}}" class="btn btn-sm btn-danger"><i class="la la-trash-o"></i>Delete</a>
 
                                 </td>
 

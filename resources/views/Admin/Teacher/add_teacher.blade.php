@@ -42,7 +42,8 @@
                     <div class="form-group">
 
                         <label class="pt-2" for="">School Name</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="school_name" />
+                        <input type="text" class="form-control" aria-label="Last name" placeholder=""
+                            name="school_name" />
                     </div>
                 </div>
             </div>
@@ -103,7 +104,7 @@
 
                         <label for="">Country</label>
                         <select class="form-control" name="country">
-                            <option value="">Select your course</option>
+                            <option value="">Select your Country</option>
                             <option value="Bangladesh">Bangladesh</option>
                             <option value="Barbados">Barbados</option>
                             <option value="Belarus">Belarus</option>
@@ -157,13 +158,12 @@
                     <div class="form-group">
                         <label class="pt-2" for="">Course Name</label>
                         <select name="course_name" id="" class="form-control">
-                   
-                            @foreach($courses as $course)
-          
-                            <option value="{{$course->course_name}}">{{$course->course_name}}</option>
+
+                            @foreach ($courses as $course)
+                                <option value="{{ $course->course_name }}">{{ $course->course_name }}</option>
                             @endforeach
-                          
-                           </select>
+
+                        </select>
                     </div>
                 </div>
             </div>
@@ -181,7 +181,7 @@
 
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{route('view_teachers')}}" class="btn btn-light">Cencel</a>
+                <a href="{{ route('view_teachers') }}" class="btn btn-light">Cencel</a>
             </div>
 
 

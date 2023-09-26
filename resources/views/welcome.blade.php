@@ -1,673 +1,501 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebUni - Education Template</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="WebUni Education Template">
+    <meta name="keywords" content="webuni, education, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('main/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('main/css/font-awesome.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('main/css/owl.carousel.css')}}" />
+    <link rel="stylesheet" href="{{ asset('main/css/styles.css')}}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    
+ {{-- <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+ <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> --}}
 
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-
-        ::after,
-        ::before {
-            --tw-content: ''
-        }
-
-
-        body {
-            margin: 0;
-            line-height: inherit
-        }
-
-        hr {
-            height: 0;
-            color: inherit;
-            border-top-width: 1px
-        }
-
-        abbr:where([title]) {
-            -webkit-text-decoration: underline dotted;
-            text-decoration: underline dotted
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-size: inherit;
-            font-weight: inherit
-        }
-
-        a {
-            color: inherit;
-            text-decoration: inherit
-        }
-
-        b,
-        strong {
-            font-weight: bolder
-        }
-
-        code,
-        kbd,
-        pre,
-        samp {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            font-size: 1em
-        }
-
-        small {
-            font-size: 80%
-        }
-
-        sub,
-        sup {
-            font-size: 75%;
-            line-height: 0;
-            position: relative;
-            vertical-align: baseline
-        }
-
-        sub {
-            bottom: -.25em
-        }
-
-        sup {
-            top: -.5em
-        }
-
-        table {
-            text-indent: 0;
-            border-color: inherit;
-            border-collapse: collapse
-        }
-
-        button,
-        input,
-        optgroup,
-        select,
-        textarea {
-            font-family: inherit;
-            font-size: 100%;
-            font-weight: inherit;
-            line-height: inherit;
-            color: inherit;
-            margin: 0;
-            padding: 0
-        }
-
-        button,
-        select {
-            text-transform: none
-        }
-
-        [type=button],
-        [type=reset],
-        [type=submit],
-        button {
-            -webkit-appearance: button;
-            background-color: transparent;
-            background-image: none
-        }
-
-        :-moz-focusring {
-            outline: auto
-        }
-
-        :-moz-ui-invalid {
-            box-shadow: none
-        }
-
-        progress {
-            vertical-align: baseline
-        }
-
-        ::-webkit-inner-spin-button,
-        ::-webkit-outer-spin-button {
-            height: auto
-        }
-
-        [type=search] {
-            -webkit-appearance: textfield;
-            outline-offset: -2px
-        }
-
-        ::-webkit-search-decoration {
-            -webkit-appearance: none
-        }
-
-        ::-webkit-file-upload-button {
-            -webkit-appearance: button;
-            font: inherit
-        }
-
-        summary {
-            display: list-item
-        }
-
-        blockquote,
-        dd,
-        dl,
-        figure,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        hr,
-        p,
-        pre {
-            margin: 0
-        }
-
-        fieldset {
-            margin: 0;
-            padding: 0
-        }
-
-        legend {
-            padding: 0
-        }
-
-        menu,
-        ol,
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0
-        }
-
-        textarea {
-            resize: vertical
-        }
-
-        input::placeholder,
-        textarea::placeholder {
-            opacity: 1;
-            color: #9ca3af
-        }
-
-        [role=button],
-        button {
-            cursor: pointer
-        }
-
-        :disabled {
-            cursor: default
-        }
-
-        audio,
-        canvas,
-        embed,
-        iframe,
-        img,
-        object,
-        svg,
-        video {
-            display: block;
-            vertical-align: middle
-        }
-
-        img,
-        video {
-            max-width: 100%;
-            height: auto
-        }
-
-        [hidden] {
-            display: none
-        }
-
-        *,
-        ::before,
-        ::after {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
-            --tw-hue-rotate: ;
-            --tw-invert: ;
-            --tw-saturate: ;
-            --tw-sepia: ;
-            --tw-drop-shadow: ;
-            --tw-backdrop-blur: ;
-            --tw-backdrop-brightness: ;
-            --tw-backdrop-contrast: ;
-            --tw-backdrop-grayscale: ;
-            --tw-backdrop-hue-rotate: ;
-            --tw-backdrop-invert: ;
-            --tw-backdrop-opacity: ;
-            --tw-backdrop-saturate: ;
-            --tw-backdrop-sepia:
-        }
-
-        ::-webkit-backdrop {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
-            --tw-hue-rotate: ;
-            --tw-invert: ;
-            --tw-saturate: ;
-            --tw-sepia: ;
-            --tw-drop-shadow: ;
-            --tw-backdrop-blur: ;
-            --tw-backdrop-brightness: ;
-            --tw-backdrop-contrast: ;
-            --tw-backdrop-grayscale: ;
-            --tw-backdrop-hue-rotate: ;
-            --tw-backdrop-invert: ;
-            --tw-backdrop-opacity: ;
-            --tw-backdrop-saturate: ;
-            --tw-backdrop-sepia:
-        }
-
-        ::backdrop {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
-            --tw-hue-rotate: ;
-            --tw-invert: ;
-            --tw-saturate: ;
-            --tw-sepia: ;
-            --tw-drop-shadow: ;
-            --tw-backdrop-blur: ;
-            --tw-backdrop-brightness: ;
-            --tw-backdrop-contrast: ;
-            --tw-backdrop-grayscale: ;
-            --tw-backdrop-hue-rotate: ;
-            --tw-backdrop-invert: ;
-            --tw-backdrop-opacity: ;
-            --tw-backdrop-saturate: ;
-            --tw-backdrop-sepia:
-        }
-
-        .relative {
-            position: relative
-        }
-
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto
-        }
-
-        .mx-6 {
-            margin-left: 1.5rem;
-            margin-right: 1.5rem
-        }
-
-        .ml-4 {
-            margin-left: 1rem
-        }
-
-        .mt-16 {
-            margin-top: 4rem
-        }
-
-        .mt-6 {
-            margin-top: 1.5rem
-        }
-
-        .mt-4 {
-            margin-top: 1rem
-        }
-
-        .-mt-px {
-            margin-top: -1px
-        }
-
-        .mr-1 {
-            margin-right: 0.25rem
-        }
-
-        .flex {
-            display: flex
-        }
-
-        .inline-flex {
-            display: inline-flex
-        }
-
-        .grid {
-            display: grid
-        }
-
-        .h-16 {
-            height: 4rem
-        }
-
-        .h-7 {
-            height: 1.75rem
-        }
-
-        .h-6 {
-            height: 1.5rem
-        }
-
-        .h-5 {
-            height: 1.25rem
-        }
-
-        .min-h-screen {
-            min-height: 100vh
-        }
-
-        .w-auto {
-            width: auto
-        }
-
-        .w-16 {
-            width: 4rem
-        }
-
-        .w-7 {
-            width: 1.75rem
-        }
-
-        .w-6 {
-            width: 1.5rem
-        }
-
-        .w-5 {
-            width: 1.25rem
-        }
-
-        .max-w-7xl {
-            max-width: 80rem
-        }
-
-        .shrink-0 {
-            flex-shrink: 0
-        }
-
-        .scale-100 {
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
-        }
-
-        .grid-cols-1 {
-            grid-template-columns: repeat(1, minmax(0, 1fr))
-        }
-
-        .items-center {
-            align-items: center
-        }
-
-        .justify-center {
-            justify-content: center
-        }
-
-        .gap-6 {
-            gap: 1.5rem
-        }
-
-        .gap-4 {
-            gap: 1rem
-        }
-
-        .self-center {
-            align-self: center
-        }
-
-        .rounded-lg {
-            border-radius: 0.5rem
-        }
 
 </head>
 
-	<!-- Header section -->
-	<header class="header-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-3">
-					<div class="site-logo">
-						<img src="img/logo.png" alt="">
-					</div>
-					<div class="nav-switch">
-						<i class="fa fa-bars"></i>
-					</div>
-				</div>
-				<div class="col-lg-9 col-md-9">
-					<a href="" class="site-btn header-btn">Login</a>
-					<nav class="main-menu">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="#">About us</a></li>
-							<li><a href="courses.html">Courses</a></li>
-							<li><a href="blog.html">News</a></li>
-							<li><a href="contact.html">Contact</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- Header section end -->
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
 
-
-	<!-- Hero section -->
-	<section class="hero-section set-bg" data-setbg="img/bg.jpg">
-		<div class="container">
-			<div class="hero-text text-white">
-				<h2>Get The Best Free Online Courses</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla <br> dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
-			</div>
-			<div class="row">
-				<div class="col-lg-10 offset-lg-1">
-					<form class="intro-newslatter">
-						<input type="text" placeholder="Name">
-						<input type="text" class="last-s" placeholder="E-mail">
-						<button class="site-btn">Sign Up Now</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Hero section end -->
-
-
-                    <a href="https://laracasts.com"
-                        class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                        <div>
-                            <div
-                                class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                    <path stroke-linecap="round"
-                                        d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                                </svg>
-                            </div>
-
-
-                            <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript
-                                development. Check them out, see for yourself, and massively level up your development
-                                skills in the process.
-                            </p>
-                        </div>
-
-
-                    <a href="https://laravel-news.com"
-                        class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                        <div>
-                            <div
-                                class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                </svg>
-                            </div>
-
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
-
-                            <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                Laravel News is a community driven portal and newsletter aggregating all of the latest
-                                and most important news in the Laravel ecosystem, including new package releases and
-                                tutorials.
-                            </p>
-                        </div>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                        </svg>
-                    </a>
-
-                    <div
-                        class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                        <div>
-                            <div
-                                class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
-                                </svg>
-                            </div>
-
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
-
-                            <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                Laravel's robust library of first-party tools and libraries, such as <a
-                                    href="https://forge.laravel.com"
-                                    class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>,
-                                <a href="https://vapor.laravel.com"
-                                    class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>,
-                                <a href="https://nova.laravel.com"
-                                    class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>,
-                                and <a href="https://envoyer.io"
-                                    class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a>
-                                help you take your projects to the next level. Pair them with powerful open source
-                                libraries like <a href="https://laravel.com/docs/billing"
-                                    class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>,
-                                <a href="https://laravel.com/docs/dusk"
-                                    class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>,
-                                <a href="https://laravel.com/docs/broadcasting"
-                                    class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>,
-                                <a href="https://laravel.com/docs/horizon"
-                                    class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>,
-                                <a href="https://laravel.com/docs/sanctum"
-                                    class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>,
-                                <a href="https://laravel.com/docs/telescope"
-                                    class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>,
-                                and more.
-                            </p>
-                        </div>
+    <!-- Header section -->
+    <header class="header-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="site-logo">
+                        <img src="{{asset('main/img/logo.png')}}" alt="">
+                    </div>
+                    <div class="nav-switch">
+                        <i class="fa fa-bars"></i>
                     </div>
                 </div>
-            </div>
-
-            <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                    <div class="flex items-center gap-4">
-                        <a href="https://github.com/sponsors/taylorotwell"
-                            class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                class="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                            </svg>
-                            Sponsor
-                        </a>
-                    </div>
-                </div>
-
-                <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                    Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                <div class="col-lg-9 col-md-9">
+                    <a href="{{route('login')}}" class="site-btn header-btn">Login</a>
+                    <nav class="main-menu">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="courses.html">Courses</a></li>
+                            <li><a href="blog.html">News</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </header>
+    <!-- Header section end -->
+
+
+    <!-- Hero section -->
+    <section class="hero-section set-bg" data-setbg="{{asset('main/img/bg.jpg')}}">
+        <div class="container">
+            <div class="hero-text text-white">
+                <h2>Get The Best Free Online Courses</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris
+                    scelerisque, at rutrum nulla <br> dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <form class="intro-newslatter">
+                        <input type="text" placeholder="Name">
+                        <input type="text" class="last-s" placeholder="E-mail">
+                        <button class="site-btn">Sign Up Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero section end -->
+
+
+    <!-- categories section -->
+    <section class="categories-section spad">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Course Categories</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris
+                    scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+            </div>
+            <div class="row">
+                <!-- categorie -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="categorie-item">
+                        <div class="ci-thumb set-bg" data-setbg="{{asset('main/img/categories/1.jpg')}}"></div>
+                        <div class="ci-text">
+                            <h5>IT Development</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <span>120 Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- categorie -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="categorie-item">
+                        <div class="ci-thumb set-bg" data-setbg="{{asset('main/img/categories/2.jpg')}}"></div>
+                        <div class="ci-text">
+                            <h5>Web Design</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <span>70 Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- categorie -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="categorie-item">
+                        <div class="ci-thumb set-bg" data-setbg="{{asset('main/img/categories/3.jpg')}}"></div>
+                        <div class="ci-text">
+                            <h5>Illustration & Drawing</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <span>55 Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- categorie -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="categorie-item">
+                        <div class="ci-thumb set-bg" data-setbg="{{asset('main/img/categories/4.jpg')}}"></div>
+                        <div class="ci-text">
+                            <h5>Social Media</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <span>40 Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- categorie -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="categorie-item">
+                        <div class="ci-thumb set-bg" data-setbg="{{asset('main/img/categories/5.jpg')}}"></div>
+                        <div class="ci-text">
+                            <h5>Photoshop</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <span>220 Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- categorie -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="categorie-item">
+                        <div class="ci-thumb set-bg" data-setbg="{{asset('main/img/categories/6.jpg')}}"></div>
+                        <div class="ci-text">
+                            <h5>Cryptocurrencies</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <span>25 Courses</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- categories section end -->
+
+
+    <!-- search section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-warp">
+                <div class="section-title text-white">
+                    <h2>Search your course</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <!-- search form -->
+                        <form class="course-search-form">
+                            <input type="text" placeholder="Course">
+                            <input type="text" class="last-m" placeholder="Category">
+                            <button class="site-btn">Search Couse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- search section end -->
+
+
+    <!-- course section -->
+    <section class="course-section spad">
+        <div class="container">
+            <div class="section-title mb-0">
+                <h2>Featured Courses</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris
+                    scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+            </div>
+        </div>
+        <div class="course-warp">
+            <ul class="course-filter controls">
+                <li class="control active" data-filter="all">All</li>
+                <li class="control" data-filter=".finance">Finance</li>
+                <li class="control" data-filter=".design">Design</li>
+                <li class="control" data-filter=".web">Web Development</li>
+                <li class="control" data-filter=".photo">Photography</li>
+            </ul>
+            <div class="row course-items-area">
+                <!-- course -->
+                <div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+                    <div class="course-item">
+                        <div class="course-thumb set-bg" data-setbg="{{asset('main/img/courses/1.jpg')}}">
+                            <div class="price">Price: $15</div>
+                        </div>
+                        <div class="course-info">
+                            <div class="course-text">
+                                <h5>Art & Crafts</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                <div class="students">120 Students</div>
+                            </div>
+                            <div class="course-author">
+                                <div class="ca-pic set-bg" data-setbg="{{asset('main/img/authors/1.jpg')}}"></div>
+                                <p>William Parker, <span>Developer</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- course -->
+                <div class="mix col-lg-3 col-md-4 col-sm-6 design">
+                    <div class="course-item">
+                        <div class="course-thumb set-bg" data-setbg="{{asset('main/img/courses/2.jpg')}}">
+                            <div class="price">Price: $15</div>
+                        </div>
+                        <div class="course-info">
+                            <div class="course-text">
+                                <h5>IT Development</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                <div class="students">120 Students</div>
+                            </div>
+                            <div class="course-author">
+                                <div class="ca-pic set-bg" data-setbg="{{asset('main/img/authors/2.jpg')}}"></div>
+                                <p>William Parker, <span>Developer</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- course -->
+                <div class="mix col-lg-3 col-md-4 col-sm-6 web">
+                    <div class="course-item">
+                        <div class="course-thumb set-bg" data-setbg="{{asset('main/img/courses/3.jpg')}}">
+                            <div class="price">Price: $15</div>
+                        </div>
+                        <div class="course-info">
+                            <div class="course-text">
+                                <h5>Graphic Design</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                <div class="students">120 Students</div>
+                            </div>
+                            <div class="course-author">
+                                <div class="ca-pic set-bg" data-setbg="{{asset('main/img/authors/3.jpg')}}"></div>
+                                <p>William Parker, <span>Developer</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- course -->
+                <div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+                    <div class="course-item">
+                        <div class="course-thumb set-bg" data-setbg="{{asset('main/img/courses/4.jpg')}}">
+                            <div class="price">Price: $15</div>
+                        </div>
+                        <div class="course-info">
+                            <div class="course-text">
+                                <h5>IT Development</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                <div class="students">120 Students</div>
+                            </div>
+                            <div class="course-author">
+                                <div class="ca-pic set-bg" data-setbg="{{asset('main/img/authors/4.jpg')}}"></div>
+                                <p>William Parker, <span>Developer</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- course -->
+                <div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+                    <div class="course-item">
+                        <div class="course-thumb set-bg" data-setbg="{{asset('main/img/courses/5.jpg')}}">
+                            <div class="price">Price: $15</div>
+                        </div>
+                        <div class="course-info">
+                            <div class="course-text">
+                                <h5>IT Development</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                <div class="students">120 Students</div>
+                            </div>
+                            <div class="course-author">
+                                <div class="ca-pic set-bg" data-setbg="{{asset('main/img/authors/5.jpg')}}"></div>
+                                <p>William Parker, <span>Developer</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- course -->
+                <div class="mix col-lg-3 col-md-4 col-sm-6 design">
+                    <div class="course-item">
+                        <div class="course-thumb set-bg" data-setbg="{{asset('main/img/courses/6.jpg')}}">
+                            <div class="price">Price: $15</div>
+                        </div>
+                        <div class="course-info">
+                            <div class="course-text">
+                                <h5>Socia Media</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                <div class="students">120 Students</div>
+                            </div>
+                            <div class="course-author">
+                                <div class="ca-pic set-bg" data-setbg="{{asset('main/img/authors/6.jpg')}}"></div>
+                                <p>William Parker, <span>Developer</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- course -->
+                <div class="mix col-lg-3 col-md-4 col-sm-6 web">
+                    <div class="course-item">
+                        <div class="course-thumb set-bg" data-setbg="{{asset('main/img/courses/7.jpg')}}">
+                            <div class="price">Price: $15</div>
+                        </div>
+                        <div class="course-info">
+                            <div class="course-text">
+                                <h5>IT Development</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                <div class="students">120 Students</div>
+                            </div>
+                            <div class="course-author">
+                                <div class="ca-pic set-bg" data-setbg="{{asset('main/img/authors/7.jpg')}}"></div>
+                                <p>William Parker, <span>Developer</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- course -->
+                <div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+                    <div class="course-item">
+                        <div class="course-thumb set-bg" data-setbg="{{asset('main/img/courses/8.jpg')}}">
+                            <div class="price">Price: $15</div>
+                        </div>
+                        <div class="course-info">
+                            <div class="course-text">
+                                <h5>HTML 5</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                <div class="students">120 Students</div>
+                            </div>
+                            <div class="course-author">
+                                <div class="ca-pic set-bg" data-setbg="{{asset('main/img/authors/8.jpg')}}"></div>
+                                <p>William Parker, <span>Developer</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- course section end -->
+
+
+    <!-- signup section -->
+    <section class="signup-section spad">
+        <div class="signup-bg set-bg" data-setbg="{{asset('main/img/signup-bg.jpg')}}"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="signup-warp">
+                        <div class="section-title text-white text-left">
+                            <h2>Sign up to became a teacher</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus
+                                mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus
+                                faucibus finibus.</p>
+                        </div>
+                        <!-- signup form -->
+                        <form class="signup-form">
+                            <input type="text" placeholder="Your Name">
+                            <input type="text" placeholder="Your E-mail">
+                            <input type="text" placeholder="Your Phone">
+                            <label for="v-upload" class="file-up-btn">Upload Course</label>
+                            <input type="file" id="v-upload">
+                            <button class="site-btn">Search Couse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- signup section end -->
+
+
+    <!-- banner section -->
+    <section class="banner-section spad">
+        <div class="container">
+            <div class="section-title mb-0 pb-2">
+                <h2>Join Our Community Now!</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris
+                    scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+            </div>
+            <div class="text-center pt-5">
+                <a href="#" class="site-btn">Register Now</a>
+            </div>
+        </div>
+    </section>
+    <!-- banner section end -->
+
+
+    <!-- footer section -->
+    <footer class="footer-section spad pb-0">
+        <div class="footer-top">
+            <div class="footer-warp">
+                <div class="row">
+                    <div class="widget-item">
+                        <h4>Contact Info</h4>
+                        <ul class="contact-list">
+                            <li>1481 Creekside Lane <br>Avila Beach, CA 931</li>
+                            <li>+53 345 7953 32453</li>
+                            <li>yourmail@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="widget-item">
+                        <h4>Engeneering</h4>
+                        <ul>
+                            <li><a href="">Applied Studies</a></li>
+                            <li><a href="">Computer Engeneering</a></li>
+                            <li><a href="">Software Engeneering</a></li>
+                            <li><a href="">Informational Engeneering</a></li>
+                            <li><a href="">System Engeneering</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget-item">
+                        <h4>Graphic Design</h4>
+                        <ul>
+                            <li><a href="">Applied Studies</a></li>
+                            <li><a href="">Computer Engeneering</a></li>
+                            <li><a href="">Software Engeneering</a></li>
+                            <li><a href="">Informational Engeneering</a></li>
+                            <li><a href="">System Engeneering</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget-item">
+                        <h4>Development</h4>
+                        <ul>
+                            <li><a href="">Applied Studies</a></li>
+                            <li><a href="">Computer Engeneering</a></li>
+                            <li><a href="">Software Engeneering</a></li>
+                            <li><a href="">Informational Engeneering</a></li>
+                            <li><a href="">System Engeneering</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget-item">
+                        <h4>Newsletter</h4>
+                        <form class="footer-newslatter">
+                            <input type="email" placeholder="E-mail">
+                            <button class="site-btn">Subscribe</button>
+                            <p>*We don’t spam</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-warp">
+                <ul class="footer-menu">
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+                <div class="copyright">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
+                        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section end -->
+
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="{{ asset('main/js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{ asset('main/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('main/js/mixitup.min.js')}}"></script>
+    <script src="{{ asset('main/js/circle-progress.min.js')}}"></script>
+    <script src="{{ asset('main/js/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('main/js/main.js')}}"></script>
 
 </html>
+</body>

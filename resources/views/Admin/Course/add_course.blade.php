@@ -20,8 +20,8 @@
             <h1 class="fw-normal">COURSE FORM</h1>
             <p class="text-secondary">Enter your course information below</p>
         </div>
-        
-        <form action="{{ route('course_store')}}" method="post">
+
+        <form action="{{ route('course_store') }}" method="post">
             @csrf
 
             <div class="row mb-3">
@@ -29,27 +29,37 @@
                     <div class="form-group">
 
                         <label class="pt-2" for="">Course Name</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder=""
-                            name="course_name" />
+                        <input type="text" class="form-control @error('course_name') is-invalid @enderror"
+                            aria-label="Last name" placeholder="" name="course_name" />
+                        @error('course_name')
+                            <p class="invalid-feedback">
+                                <strong>{{ $message }} </strong>
+                            </p>
+                        @enderror
                     </div>
                 </div>
             </div>
-           
+
             <div class="row">
                 <div class="col-12">
                     <label for="">Description</label>
-                    <input type="text" class="form-control" name="description" placeholder="Your course description">
+                    <input type="text" class="form-control @error('description') is-invalid @enderror" name="description"
+                        placeholder="Your course description">
+                    @error('description')
+                        <p class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </p>
+                    @enderror
                 </div>
             </div>
 
 
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{route('view_courses')}}" class="btn btn-light">Cencel</a>
+                <a href="{{ route('view_courses') }}" class="btn btn-light">Cencel</a>
             </div>
 
 
         </form>
     </div>
-
 @endsection

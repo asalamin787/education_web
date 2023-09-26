@@ -17,7 +17,6 @@
                             <th scope="col">Course</th>
                             <th scope="col">Birthday</th>
                             <th scope="col">Gender</th>
-                            <th scope="col">Student Id</th>
                             <th scope="col">Father Name</th>
                             <th scope="col">Mother Name</th>
                             {{-- <th scope="col">Blood Group</th>
@@ -47,18 +46,13 @@
                                 <td scope="row">{{ $admission->course }}</td>
                                 <td scope="row">{{ $admission->birthday }}</td>
                                 <td scope="row">{{ $admission->gender }}</td>
-                                <td scope="row">{{ $admission->student_id }}</td>
                                 <td scope="row">{{ $admission->father }}</td>
                                 <td scope="row">{{ $admission->mother }}</td>
                                 {{-- <td scope="row">{{ $admission->blood }}</td>
                                 <td scope="row">{{ $admission->country }}</td>
-                                <td scope="row">{{ $admission->which_country }}</td>
                                 <td scope="row">{{ $admission->phone }}</td>
                                 <td scope="row">{{ $admission->stu_email }}</td>
-                                <td scope="row">{{ $admission->street }}</td>
-                                <td scope="row">{{ $admission->street_2 }}</td>
                                 <td scope="row">{{ $admission->city }}</td>
-                                <td scope="row">{{ $admission->state }}</td>
                                 <td scope="row">{{ $admission->postal }}</td>
                                 <td scope="row">{{ $admission->prs_name }}</td>
                                 <td scope="row">{{ $admission->relationship }}</td>
@@ -66,6 +60,8 @@
                                 <td scope="row">{{ $admission->prs_phone }}</td> --}}
 
                                 <td>
+                                    <a href="{{route('student_profile_view', $admission)}}" class="btn btn-sm btn-success">View</a>
+                                    <a href="{{route('add_payment', $admission)}}" class="btn btn-sm btn-warning">Payment</a>
                                     <a href="{{route('edit_admission', $admission)}}" class="btn btn-sm btn-primary">Edit</a>
                                     <a href="{{route('delete_admission', $admission)}}" class="btn btn-sm btn-danger"><i class="la la-trash-o"></i>Delete</a>
 

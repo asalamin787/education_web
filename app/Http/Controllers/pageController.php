@@ -9,6 +9,7 @@ use App\Models\Payment;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Ui\Presets\React;
 
 class pageController extends Controller
@@ -23,40 +24,76 @@ class pageController extends Controller
     }
     public function admission_store(Request $request){
     //    dd($request->all());
+        $admission=Admission::latest()->first();
+        $request->validate([
+            'name' => 'required',
+            'm_name' => 'required',
+            'l_name' => 'required',
+            'roll' => 'required|numeric',
+            'registration' => 'required|numeric',
+            'course' => 'required',
+            'birthday' => 'required',
+            'gender' => 'required',
+            'phone' => 'required',
+            'father' => 'required',
+            'mother' => 'required',
+            'blood' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'postal' => 'required',
+            'email' => 'required', // Adjust validation rules as needed
+            'password' => 'required',
+            'role_id' => 'required|',
+            'prs_f_name' => 'required|',
+            'relationship' => 'required',
+            'prs_email' => 'required',
+            'prs_phone' => 'required',
+            // 'image' => 'required',
+        ]);
+    
+        // // Handle file upload
+        // if ($request->hasFile('image')) {
+        //     $imagePath = $request->file('image')->store('public/admissions');
+        // } else {
+        //     // Handle the case where no image was provided or the upload failed
+        //     $imagePath=null;
+        
+        // }
+    
+        // Create Admission record with the image path
         Admission::create([
             'name' => $request->name,
-            'm_name' => $request->m_name,
-            'l_name' => $request->l_name,
+            'm_name' => $request->name,
+            'l_name' => $request->name,
             'roll' => $request->roll,
             'registration' => $request->registration,
             'course' => $request->course,
             'birthday' => $request->birthday,
             'gender' => $request->gender,
-            'student_id' => $request->student_id,
             'father' => $request->father,
             'mother' => $request->mother,
             'blood' => $request->blood,
             'country' => $request->country,
-            'which_country' => $request->which_country,
             'phone' => $request->phone,
-            'street' => $request->street,
-            'street_2' => $request->street_2,
             'city' => $request->city,
-            'state' => $request->state,
             'postal' => $request->postal,
             'prs_f_name' => $request->prs_f_name,
             'prs_l_name' => $request->prs_l_name,
             'relationship' => $request->relationship,
             'prs_email' => $request->prs_email,
             'prs_phone' => $request->prs_phone,
+            'image' =>$request->file('image')->store('public/admissions'),
         ]);
+    
+        // Create User record
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => bcrypt($request->password), // Hash the password
             'role_id' => $request->role_id,
         ]);
-        return back();
+    
+        return redirect('view_admissions')->with('success', 'Admission uploaded successfully.');
     }
     public function view_admissions(){
         $admissions = Admission::latest()->get();
@@ -68,7 +105,12 @@ class pageController extends Controller
         return view('Admin.Admission.edit_admission', compact('admission','courses'));
     }
     public function update_admission(Admission $admission, Request $request){
-        
+        if($request->has('image')){
+            $image=$request->file('image')->store('public/admission');
+            Storage::delete($request->image);
+        }else{
+            $image = $admission->image;
+        }
         $admission->update([
             'name' => $request->name,
             'm_name' => $request->m_name,
@@ -78,30 +120,35 @@ class pageController extends Controller
             'course' => $request->course,
             'birthday' => $request->birthday,
             'gender' => $request->gender,
-            'student_id' => $request->student_id,
             'father' => $request->father,
             'mother' => $request->mother,
             'blood' => $request->blood,
             'country' => $request->country,
-            'which_country' => $request->which_country,
             'phone' => $request->phone,
-            'street' => $request->street,
-            'street_2' => $request->street_2,
             'city' => $request->city,
-            'state' => $request->state,
             'postal' => $request->postal,
             'prs_f_name' => $request->prs_f_name,
             'prs_l_name' => $request->prs_l_name,
             'relationship' => $request->relationship,
             'prs_email' => $request->prs_email,
             'prs_phone' => $request->prs_phone,
+            'image'=>$image,
         ]);
         return redirect('view_admissions');
     }
     public function delete_admission(Admission $admission){
+        Storage::delete($admission->image);
         $admission->delete();
         return redirect('view_admissions');
     }
+    public function student_profile_view(Admission $admission){
+        return view('Admin.Admission.student_profile_view', compact('admission'));
+    }
+    // public function student_profile_store(Request $request){
+    //     Admission::create([
+            
+    //     ]);
+    // }
 
 
 
@@ -127,7 +174,7 @@ class pageController extends Controller
             'course_name' => $request->course_name,
             'course_date' => $request->course_date,
         ]);
-        return back();
+        return back()->with('success', 'Teacher uploaded successfully.');
     }
     public function view_teachers(){
         $teachers= Teacher::latest()->get();
@@ -167,11 +214,15 @@ class pageController extends Controller
         return view('Admin.Course.add_course');
     }
     public function course_store(Request $request){
+        $request->validate([
+            'course_name'=>'required|max:3|min:2',
+            'description'=>'required'
+        ]);
         Course::create([
             'course_name'=>$request->course_name,
             'description'=>$request->description,
         ]);
-        return back();
+        return back()->with('success', 'Course uploaded successfully.');
     }
     public function view_courses(){
         $courses = Course::latest()->get();
@@ -222,5 +273,7 @@ class pageController extends Controller
         return redirect('view_payments');
     }
 
-    
+    public function profile(){
+        return view('Admin.Profile.profile');
+    }    
 }

@@ -10,7 +10,7 @@ Route::get('/', function () {
 });
 Route::middleware(['role:admin','auth'])->group(function () {
 
-    Route::get('/index',[pageController::class, 'index1']);
+    Route::get('/index',[pageController::class, 'index1'])->name('index');
     
     Route::get('/add_admission', [pageController::class, 'add_admission'])->name('add_admission');
     Route::post('admission_store',[pageController::class, 'admission_store'])->name('admission_store');
@@ -18,6 +18,7 @@ Route::middleware(['role:admin','auth'])->group(function () {
     Route::get('edit_admission/{admission}', [pageController::class, 'edit_admission'])->name('edit_admission');
     Route::post('update_admission/{admission}', [pageController::class, 'update_admission'])->name('update_admission');
     Route::get('delete_admission/{admission}', [pageController::class, 'delete_admission'])->name('delete_admission');
+    Route::get('student_profile_view/{admission}', [pageController::class, 'student_profile_view'])->name('student_profile_view');
 
 
     Route::get('add_teacher', [pageController::class, 'add_teacher'])->name('add_teacher');
@@ -45,7 +46,7 @@ Route::middleware(['role:admin','auth'])->group(function () {
 });
 
 Route::middleware(['role:user','auth' ])->group(function(){
-
+    
 });
 
 Auth::routes();

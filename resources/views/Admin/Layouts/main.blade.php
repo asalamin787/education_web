@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Roksyn - Bootstrap 5 Admin Template</title>
-
+    
     <!--plugins-->
     <link href="{{asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" >
     <link href="{{asset('assets/plugins/metismenu/css/metisMenu.min.css')}}" rel="stylesheet">
@@ -457,7 +457,7 @@
               <!--navigation-->
               <ul class="metismenu" id="menu">
                 <li>
-                  <a href="index.html">
+                  <a href="{{route('index')}}">
                     <div class="parent-icon"><span class="material-symbols-outlined">home</span>
                     </div>
                     <div class="menu-title">Dashboard</div>
@@ -472,11 +472,11 @@
                   <ul>
                     <li> <a href="{{route('view_admissions')}}"><span class="material-symbols-outlined">arrow_right</span>Student Admission</a>
                     </li>
-                    <li> <a href="{{route('view_teachers')}}"><span class="material-symbols-outlined">arrow_right</span>Teacher Admission</a>
+                    <li> <a href="{{route('view_teachers')}}"><span class="material-symbols-outlined">arrow_right</span>Teacher</a>
                     </li>
                     <li> <a href="{{route('view_courses')}}"><span class="material-symbols-outlined">arrow_right</span>Course</a>
                     </li>
-                    <li> <a href="app-contact-list.html"><span class="material-symbols-outlined">arrow_right</span>Contatcs</a>
+                    <li> <a href="{{route('view_payments')}}"><span class="material-symbols-outlined">arrow_right</span>Payment</a>
                     </li>
                     <li> <a href="app-to-do.html"><span class="material-symbols-outlined">arrow_right</span>Todo List</a>
                     </li>
@@ -776,7 +776,7 @@
                 </div>
               </div>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="javascript:;"><span class="material-symbols-outlined me-2">
+                <li><a class="dropdown-item" href="{{route('profile')}}"><span class="material-symbols-outlined me-2">
                   account_circle
                   </span><span>Profile</span></a>
                 </li>
@@ -801,7 +801,7 @@
                 </li>
                 <form action="{{route('logout')}}" method="post">
                   @csrf
-                  <li><button type="submit" class="dropdown-item" href="javascript:;"><span class="material-symbols-outlined me-2">
+                  <li><button type="submit" class="dropdown-item" href=""><span class="material-symbols-outlined me-2">
                     logout
                     </span><span>Logout</span></button>
                   </li>
