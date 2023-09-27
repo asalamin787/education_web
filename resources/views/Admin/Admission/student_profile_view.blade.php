@@ -18,9 +18,9 @@
         <form action="" method="post" id="printarea">
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3">
                     <div class="profile-img">
-                        <img class="rounded-circle"
+                        <img class="rounded mx-auto d-block"
                             src="{{ Storage::url($admission->image) }}"
                             alt="" />
                     </div>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3">
                     <div class="profile-head">
                         <h5>
                             {{ $admission->name }} {{ $admission->m_name }} {{ $admission->l_name }}
@@ -176,12 +176,6 @@
                                     <p>{{ $admission->prs_phone }}</p>
                                 </div>
                             </div>
-                            {{-- <div class="row">
-                                <div class="col-md-12">
-                                    <label>Your Bio</label><br />
-                                    <p>Your detail description</p>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>

@@ -51,16 +51,6 @@ class pageController extends Controller
             // 'image' => 'required',
         ]);
     
-        // // Handle file upload
-        // if ($request->hasFile('image')) {
-        //     $imagePath = $request->file('image')->store('public/admissions');
-        // } else {
-        //     // Handle the case where no image was provided or the upload failed
-        //     $imagePath=null;
-        
-        // }
-    
-        // Create Admission record with the image path
         Admission::create([
             'name' => $request->name,
             'm_name' => $request->name,
@@ -166,8 +156,8 @@ class pageController extends Controller
             'postal' => 'required',
             'email' => 'required', // Adjust validation rules as needed
             'birthday' => 'required',
-            // 'password' => 'required',
-            // 'role_id' => 'required|',
+            'password' => 'required',
+            'role_id' => 'required|',
             // 'image' => 'required',
         ]);
         Teacher::create([

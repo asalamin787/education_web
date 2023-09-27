@@ -19,20 +19,6 @@
                             <th scope="col">Gender</th>
                             <th scope="col">Father Name</th>
                             <th scope="col">Mother Name</th>
-                            {{-- <th scope="col">Blood Group</th>
-                            <th scope="col">Country</th>
-                            <th scope="col">Which Country </th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">E-mail Address</th>
-                            <th scope="col">Street Address</th>
-                            <th scope="col">Street Address Line 2</th>
-                            <th scope="col">City</th>
-                            <th scope="col">State / Province</th>
-                            <th scope="col">Postal / Zip Code</th>
-                            <th scope="col">Guardian Name</th>
-                            <th scope="col">Relationship</th>
-                            <th scope="col">Guardian E-mail</th>
-                            <th scope="col">Phone Number</th> --}}
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -48,17 +34,6 @@
                                 <td scope="row">{{ $admission->gender }}</td>
                                 <td scope="row">{{ $admission->father }}</td>
                                 <td scope="row">{{ $admission->mother }}</td>
-                                {{-- <td scope="row">{{ $admission->blood }}</td>
-                                <td scope="row">{{ $admission->country }}</td>
-                                <td scope="row">{{ $admission->phone }}</td>
-                                <td scope="row">{{ $admission->stu_email }}</td>
-                                <td scope="row">{{ $admission->city }}</td>
-                                <td scope="row">{{ $admission->postal }}</td>
-                                <td scope="row">{{ $admission->prs_name }}</td>
-                                <td scope="row">{{ $admission->relationship }}</td>
-                                <td scope="row">{{ $admission->prs_email }}</td>
-                                <td scope="row">{{ $admission->prs_phone }}</td> --}}
-
                                 <td>
                                     <a href="{{route('student_profile_view', $admission)}}" class="btn btn-sm btn-success">View</a>
                                     <a href="{{route('add_payment', $admission)}}" class="btn btn-sm btn-warning">Payment</a>

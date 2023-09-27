@@ -24,9 +24,17 @@
         <form action="{{ route('update_admission', $admission->id) }}" method="post">
             @csrf
 
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}<br>
+                    @endforeach
+                </div>
+            @endif
+
             <h5 class=" pb-2">Student Address</h5>
 
-            <div class="row g-3 mb-3">
+            <div class="row g-3">
                 <div class="col-4">
                     <label class="form-label" for="">First Name</label>
                     <input type="text" class="form-control" aria-label="First name" name="name"
@@ -46,7 +54,7 @@
 
 
 
-            <div class="row g-3 mb-3">
+            <div class="row g-3">
                 <div class="col-4">
                     <div class="form-group"> <!-- Date input -->
                         <label class="form-label"  for="">Roll No</label>
@@ -78,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="row g-3 mb-3">
+            <div class="row g-3">
                 <div class="col-4">
                     <div class="form-group"> <!-- Date input -->
                         <label class="form-label"  for="form2">Birthday</label>
@@ -107,7 +115,7 @@
                 </div>
             </div>
 
-            <div class="row g-3 mb-3">
+            <div class="row g-3">
                 <div class="col-4">
                     <label class="form-label"  for="">Father Name</label>
                     <input type="text" class="form-control" aria-label="First name" name="father"
@@ -126,7 +134,7 @@
             </div>
 
 
-            <div class="row g-3 mb-3">
+            <div class="row g-3">
                 <div class="col-4">
                     <div class="form-group">
                         <label class="form-label"  for="form2">Country</label>
@@ -154,7 +162,8 @@
             </div>
 
             <h5 class=" mb-3">Emergency Contact</h5>
-            <div class="row g-3 md-3">
+            
+            <div class="row g-3">
                 <div class="col-6">
                     <div class="row">
                         <div class="col-6">
@@ -185,7 +194,7 @@
             </div>
 
 
-            <div class="row g-3 mb-3">
+            <div class="row g-3">
                 <div class="col-6">
                     <div class="form-group">
                         <label class="form-label"  for="">E-mail Address</label>
@@ -211,146 +220,4 @@
 
         </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        //student Phone number//
-        $(document).ready(function() {
-            // Attach an input event handler to the element with id "postfix"
-            $('#postfix0').on('input', function() {
-                // Get the current value of the input field
-                var inputValue = $(this).val();
-                var numericValue = inputValue.replace(/[^0-9]/g, '');
-
-                // Update the input value with the numeric-only value
-                $(this).val(numericValue);
-
-                // Check if the length of the input exceeds 5 characters
-                if (numericValue.length > 11) {
-                    // Truncate the input to 5 characters
-                    $(this).val(numericValue.slice(0, 11));
-
-                    // Display an error message
-                    $('#error-message0').text('Maximum 11 digits allowed.');
-                } else {
-                    // Clear the error message if the input is within the limit
-                    $('#error-message0').text('');
-                }
-            });
-        });
-
-        //student Phone number end//
-
-        //Emergency Phone number//
-
-        $(document).ready(function() {
-            // Attach an input event handler to the element with id "postfix"
-            $('#postfix3').on('input', function() {
-                // Get the current value of the input field
-                var inputValue = $(this).val();
-                var numericValue = inputValue.replace(/[^0-9]/g, '');
-
-                // Update the input value with the numeric-only value
-                $(this).val(numericValue);
-
-                // Check if the length of the input exceeds 5 characters
-                if (numericValue.length > 11) {
-                    // Truncate the input to 5 characters
-                    $(this).val(numericValue.slice(0, 11));
-
-                    // Display an error message
-                    $('#error-message3').text('Maximum 11 digits allowed.');
-                } else {
-                    // Clear the error message if the input is within the limit
-                    $('#error-message3').text('');
-                }
-            });
-        });
-
-        //Emergency Phone number end//
-
-
-        //student Roll No //
-
-        $(document).ready(function() {
-            // Attach an input event handler to the element with id "postfix"
-            $('#postfix5').on('input', function() {
-                // Get the current value of the input field
-                var inputValue = $(this).val();
-                var numericValue = inputValue.replace(/[^0-9]/g, '');
-
-                // Update the input value with the numeric-only value
-                $(this).val(numericValue);
-
-                // Check if the length of the input exceeds 5 characters
-                if (numericValue.length > 8) {
-                    // Truncate the input to 5 characters
-                    $(this).val(numericValue.slice(0, 8));
-
-                    // Display an error message
-                    $('#error-message5').text('Maximum 8 digits allowed.');
-                } else {
-                    // Clear the error message if the input is within the limit
-                    $('#error-message5').text('');
-                }
-            });
-        });
-
-        //student Roll No End//
-
-        //student Registration No //
-
-        $(document).ready(function() {
-            // Attach an input event handler to the element with id "postfix"
-            $('#postfix6').on('input', function() {
-                // Get the current value of the input field
-                var inputValue = $(this).val();
-                var numericValue = inputValue.replace(/[^0-9]/g, '');
-
-                // Update the input value with the numeric-only value
-                $(this).val(numericValue);
-
-                // Check if the length of the input exceeds 5 characters
-                if (numericValue.length > 12) {
-                    // Truncate the input to 5 characters
-                    $(this).val(numericValue.slice(0, 12));
-
-                    // Display an error message
-                    $('#error-message6').text('Maximum 12 digits allowed.');
-                } else {
-                    // Clear the error message if the input is within the limit
-                    $('#error-message6').text('');
-                }
-            });
-        });
-
-        //student Registration No End//
-
-        //Postal / Zip Code //
-
-        $(document).ready(function() {
-            // Attach an input event handler to the element with id "postfix"
-            $('#postfix8').on('input', function() {
-                // Get the current value of the input field
-                var inputValue = $(this).val();
-                var numericValue = inputValue.replace(/[^0-9]/g, '');
-
-                // Update the input value with the numeric-only value
-                $(this).val(numericValue);
-
-                // Check if the length of the input exceeds 5 characters
-                if (numericValue.length > 6) {
-                    // Truncate the input to 5 characters
-                    $(this).val(numericValue.slice(0, 6));
-
-                    // Display an error message
-                    $('#error-message8').text('Maximum 6 digits allowed.');
-                } else {
-                    // Clear the error message if the input is within the limit
-                    $('#error-message8').text('');
-                }
-            });
-        });
-
-        //Postal / Zip Code End//
-    </script>
 @endsection
