@@ -24,6 +24,15 @@
         <form action="{{route('update_course', $course)}}" method="post">
             @csrf
 
+            {{-- error check  --}}
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}<br>
+                    @endforeach
+                </div>
+            @endif
+            
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-group">
