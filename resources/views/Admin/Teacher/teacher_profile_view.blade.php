@@ -11,7 +11,7 @@
 @endsection
 @section('content')
     <div class="container emp-profile">
-        <div class="col-md-12 text-end">
+        <div class="col-md-12 text-end ">
             <button onclick="printDiv('printarea')" class="btn btn-success ">Print Now</button>
             <a href="{{ route('view_teachers') }}" class="btn btn-primary">Cencel</a>
             {{-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" /> --}}
@@ -20,7 +20,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <div class="profile-img">
+                    <div class="profile-img m-3">
                         <img src="{{ Storage::url($teacher->image) }}" alt="" />
                     </div>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -45,7 +45,7 @@
                             {{ $teacher->job_designation }}
                         </h6>
                         <p class="proile-rating">Course Name : <span>{{ $teacher->course_name }}</span></p>
-                        <p class="proile-rating">Course Dates : <span>{{ $teacher->course_date }}</span></p>
+                        <p class="proile-rating">Birthday : <span>{{ $teacher->birthday }}</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"

@@ -155,7 +155,7 @@ class pageController extends Controller
     public function teacher_store(Request $request){
         // dd($request->all());
         $request->validate([
-            'f_name' => 'required',
+            'name' => 'required',
             'l_name' => 'required',
             'job_designation' => 'required',
             'city' => 'required',
@@ -165,13 +165,13 @@ class pageController extends Controller
             'country' => 'required',
             'postal' => 'required',
             'email' => 'required', // Adjust validation rules as needed
-            'course_date' => 'required',
+            'birthday' => 'required',
             // 'password' => 'required',
             // 'role_id' => 'required|',
             // 'image' => 'required',
         ]);
         Teacher::create([
-            'f_name' => $request->f_name,
+            'name' => $request->name,
             'l_name' => $request->l_name,
             'job_designation' => $request->job_designation,
             'city' => $request->city,
@@ -181,8 +181,16 @@ class pageController extends Controller
             'phone' => $request->phone,
             'email' => $request->email,
             'course_name' => $request->course_name,
-            'course_date' => $request->course_date,
+            'birthday' => $request->birthday,
             'image' =>$request->file('image')->store('public/teacher'),
+        ]);
+
+        // Create User record
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password), // Hash the password
+            'role_id' => $request->role_id,
         ]);
         return redirect('view_teachers')->with('success', 'Admission uploaded successfully.');
     }
@@ -202,7 +210,7 @@ class pageController extends Controller
             $image = $teacher->image;
         }
         $teacher->update([
-            'f_name' => $request->f_name,
+            'name' => $request->name,
             'l_name' => $request->l_name,
             'job_designation' => $request->job_designation,
             'city' => $request->city,
@@ -211,7 +219,7 @@ class pageController extends Controller
             'country' => $request->country,
             'phone' => $request->phone,
             'email' => $request->email,
-            'course_name' => $request->course_name,
+            'birthday' => $request->birthday,
             'course_date' => $request->course_date,
             'image'=>$image,
         ]);

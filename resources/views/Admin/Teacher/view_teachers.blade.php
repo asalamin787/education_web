@@ -25,7 +25,7 @@
                         @foreach ($teachers as $teacher)
                             <tr>
                                 <td scope="row">{{ $teacher->id }}</td>
-                                <td scope="row">{{ $teacher->f_name }} {{ $teacher->l_name }}</td>
+                                <td scope="row">{{ $teacher->name }} {{ $teacher->l_name }}</td>
                                 <td scope="row"><img style="width: 60px; height:60px;"src="{{ Storage::url($teacher->image) }}" alt=""></td>
                                 <td scope="row">{{ $teacher->job_designation }}</td>
                                 <td scope="row">{{ $teacher->phone }}</td>

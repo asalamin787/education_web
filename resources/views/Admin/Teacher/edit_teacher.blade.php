@@ -21,14 +21,14 @@
             <p class="text-secondary">Enter your admission information below</p>
         </div>
 
-        <form action="{{ route('update_teacher', $teacher) }}" method="post">
+        <form action="{{ route('update_teacher', $teacher) }}" method="post" enctype="multipart/form-data">
             @csrf
 
             <h5 class=" pb-2">Teacher Name</h5>
             <div class="row g-3">
                 <div class="col-6">
                     <label class="pt-2" for="">First Name</label>
-                    <input type="text" class="form-control" aria-label="First name" name="f_name" value="{{$teacher->f_name}}"/>
+                    <input type="text" class="form-control" aria-label="First name" name="name" value="{{$teacher->name}}"/>
                 </div>
                 <div class="col-6">
                     <label class="pt-2" for="">Last Name</label>
@@ -38,11 +38,43 @@
             </div>
 
             <div class="row mb-3">
-                <div class="col-12">
+                <div class="col-6">
                     <div class="form-group">
 
                         <label class="pt-2" for="">Job Designation</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="job_designation" value="{{$teacher->job_designation}}" />
+                        <input type="text" class="form-control" placeholder="Job Designation" name="job_designation" value="{{$teacher->job_designation}}" />
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group"> <!-- Date input -->
+                        <label for="">Phone</label>
+                        <input id="postfix0" type="text" class="form-control" value="{{$teacher->phone}}"
+                            placeholder="(000) 000-0000" name="phone" />
+                        <p id="error-message0" style="color: red;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-6">
+                    <div class="form-group">
+
+                        <label class="pt-2" for="">Course Name</label>
+                        <select name="course_name" id="" class="form-control">
+                            @foreach($courses as $course)
+                            <option @if($teacher->course_name== $course->course_name) selected @endif value="{{$course->course_name}}">{{$course->course_name}}</option>
+                            @endforeach
+                          
+                           </select>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+
+                        <label class="pt-2" for="">Birthday</label>
+                        <input type="date" class="form-control" placeholder="Course Dates" value="{{$teacher->birthday}}"
+                            name="birthday" />
                     </div>
                 </div>
             </div>
@@ -98,51 +130,22 @@
                 </div>
             </div>
 
-
-            <div class="row g-3 mb-3">
-                <div class="col-4">
-                    <div class="form-group"> <!-- Date input -->
-                        <label for="">Phone</label>
-                        <input id="postfix0" type="text" class="form-control" value="{{$teacher->phone}}"
-                            placeholder="(000) 000-0000" name="phone" />
-                        <p id="error-message0" style="color: red;"></p>
-                    </div>
-                </div>
-
-                <div class="col-8">
+            <div class="row gp-3 mb-3">
+                <div class="col-12">
                     <div class="form-group">
-                        <label for="">E-mail Address</label>
-                        <input type="email" class="form-control" aria-label="Last name" placeholder="" value="{{$teacher->email}}"
+
+                        <label class="pt-2" for="">Email Address </label>
+                        <input type="email" class="form-control" placeholder="" value="{{$teacher->email}}"
                             name="email" />
                     </div>
                 </div>
             </div>
 
-            <h5 class=" pb-2">Course</h5>
-
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-group">
-
-                        <label class="pt-2" for="">Course Name</label>
-                        <select name="course_name" id="" class="form-control">
-                            @foreach($courses as $course)
-                            <option @if($teacher->course_name== $course->course_name) selected @endif value="{{$course->course_name}}">{{$course->course_name}}</option>
-                            @endforeach
-                          
-                           </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-group">
-
-                        <label class="pt-2" for="">Course Dates</label>
-                        <input type="date" class="form-control" aria-label="Last name" placeholder="" value="{{$teacher->course_date}}"
-                            name="course_date" />
-                    </div>
+            <div class="mb-3 mb-3">
+                <img class="mb-2" src="{{ Storage::url($teacher->image) }}" alt="" height="100">
+                <div class="form-group">
+                    <label class="pt-2" for="">Image</label>
+                    <input type="file" class="form-control" id="recipient-name" name="image" value="{{$teacher->image}}">
                 </div>
             </div>
 

@@ -31,57 +31,163 @@
                     @endforeach
                 </div>
             @endif
+            
             <h5 class=" pb-2">Teacher Name</h5>
-            <div class="row g-3">
+            
+            <div class="row gp-3">
                 <div class="col-6">
-                    <label class="pt-2" for="">First Name</label>
-                    <input type="text" class="form-control" aria-label="First name" name="f_name" />
+                    <label class="pt-2 col-form-label" for="">First Name</label>
+                    <input type="text" class="form-control" @error('name')
+                        is invalid
+                    @enderror aria-label="First name" name="name" placeholder="First Name"/>
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
+                
                 <div class="col-6">
-                    <label class="pt-2" for="">Last Name</label>
-                    <input type="text" class="form-control" aria-label="Last name" name="l_name"
-                        placeholder="Optional" />
+                    <label class="pt-2 col-form-label" for="">Last Name</label>
+                    <input type="text" class="form-control" @error('l_name')
+                        is invalid
+                    @enderror aria-label="Last name" name="l_name"
+                        placeholder="last Name" />
+                    @error('l_name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
 
 
-            <div class="row mb-3">
-                <div class="col-12">
+            <div class="row gp-3">
+                <div class="col-6">
                     <div class="form-group">
 
-                        <label class="pt-2" for="">Job Designation</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="job_designation" />
+                        <label class="pt-2 col-form-label" for="">Job Designation</label>
+                        <input type="text" class="form-control" @error('job_designation')
+                            is invalid
+                        @enderror placeholder="Job Designation" name="job_designation" />
+                        @error('job_designation')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    </div>
+                </div>
+                
+                <div class="col-6">
+                    <div class="form-group"> <!-- Date input -->
+                        <label class="pt-2 col-form-label" for="">Phone</label>
+                        <input id="postfix0" type="text" class="form-control" @error('phone')
+                            is invalid
+                        @enderror placeholder="(000) 000-0000" name="phone" />
+                        @error('phone')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                        <p id="error-message0" style="color: red;"></p>
                     </div>
                 </div>
             </div>
 
+            <div class="row gp-3">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="pt-2 col-form-label" for="">Course Name</label>
+                        <select name="course_name" id="" class="form-control" @error('course_name')
+                            is invalid
+                        @enderror>
+                        @error('course_name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
 
-            <div class="row g-3">
-                <div class="col-6">
-                    <label class="pt-2" for="">City</label>
-                    <input type="text" class="form-control" aria-label="First name" name="city" />
+                            @foreach ($courses as $course)
+                                <option value="{{ $course->course_name }}">{{ $course->course_name }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
                 </div>
+                
                 <div class="col-6">
-                    <label class="pt-2" for="">Region</label>
-                    <input type="text" class="form-control" aria-label="Last name" name="region" />
+                    <div class="form-group">
+
+                        <label class="pt-2 col-form-label" for="">Birthday</label>
+                        <input type="date" class="form-control" @error('birthday')
+                           is invalid 
+                        @enderror placeholder="Birthday"
+                            name="birthday" />
+                            @error('birthday')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                 </div>
             </div>
 
-            <div class="row g-3">
+            <div class="row gp-3">
+                <div class="col-6">
+                    <label class="pt-2 col-form-label" for="">City</label>
+                    <input type="text" class="form-control" @error('city')
+                        is invalid
+                    @enderror name="city" placeholder="Caty"/>
+                    @error('city')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                
+                <div class="col-6">
+                    <label class="pt-2 col-form-label" for="">Region</label>
+                    <input type="text" class="form-control" @error('region')
+                        is invalid
+                    @enderror name="region" placeholder="Region"/>
+                    @error('region')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row gp-3">
                 <div class="col-6">
                     <div class="form-group"> <!-- Date input -->
-                        <label for="">Postal / Zip Code</label>
-                        <input id="postfix8" value="" type="text" class="form-control" placeholder="(000 000)"
+                        <label class="pt-2 col-form-label" for="">Postal / Zip Code</label>
+                        <input id="postfix8" type="number" class="form-control" @error('postal')
+                            is invalid
+                        @enderror placeholder="Zip Code"
                             name="postal" />
+                            @error('postal')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         <p id="error-message8" style="color: red;"></p>
                     </div>
                 </div>
+                
                 <div class="col-6">
                     <div class="form-group">
 
-                        <label for="">Country</label>
-                        <select class="form-control" name="country">
-                            <option value="">Select your Country</option>
+                        <label class="pt-2 col-form-label" for="">Country</label>
+                        <select class="form-control" @error('country')
+                            is invalid
+                        @enderror name="country">
+                        @error('country')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                            <option ></option>
                             <option value="Bangladesh">Bangladesh</option>
                             <option value="Barbados">Barbados</option>
                             <option value="Belarus">Belarus</option>
@@ -108,57 +214,54 @@
                 </div>
             </div>
 
+            <div class="row gp-3">
 
-            <div class="row g-3 mb-3">
                 <div class="col-4">
-                    <div class="form-group"> <!-- Date input -->
-                        <label for="">Phone</label>
-                        <input id="postfix0" value="" type="text" class="form-control"
-                            placeholder="(000) 000-0000" name="phone" />
-                        <p id="error-message0" style="color: red;"></p>
-                    </div>
+                    <label class="form-label" for="email"
+                        class="col-md-4 col-form-label ">{{ __('Email Address') }}</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                        name="email" value="{{ old('email') }}" required autocomplete="email"
+                        placeholder="emailaddress123@gmail.com">
+
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
 
-                <div class="col-8">
-                    <div class="form-group">
-                        <label for="">E-mail Address</label>
-                        <input type="email" class="form-control" aria-label="Last name" placeholder=""
-                            name="email" />
-                    </div>
+                <div class="col-4">
+                    <label class="form-label" for="password"
+                        class="col-md-4 col-form-label ">{{ __('Password') }}</label>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                        name="password" required autocomplete="new-password" placeholder="New Password">
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
-            </div>
 
-            <h5 class=" pb-2">Course</h5>
-
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-group">
-                        <label class="pt-2" for="">Course Name</label>
-                        <select name="course_name" id="" class="form-control">
-
-                            @foreach ($courses as $course)
-                                <option value="{{ $course->course_name }}">{{ $course->course_name }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-group">
-
-                        <label class="pt-2" for="">Course Dates</label>
-                        <input type="date" class="form-control" aria-label="Last name" placeholder=""
-                            name="course_date" />
-                    </div>
+                <div class="col-4">
+                    <label class="form-label" for="password-confirm"
+                        class="col-md-4 col-form-label ">{{ __('Confirm Password') }}</label>
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                        required autocomplete="new-password" placeholder="Confirm Password">
                 </div>
             </div>
+            <input type="hidden" name="role_id" value="2">
 
-            <div class="mb-3 mb-3">
-                <label class="pt-2" for="">Image</label>
-                <input type="file" class="form-control" id="recipient-name" name="image">
+            <div class="mb-3">
+                <label class="pt-2 col-form-label" for="">Image</label>
+                <input type="file" class="form-control" @error('image')
+                    is invalid
+                @enderror id="recipient-name" name="image" placeholder="Image">
+                @error('image')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
             </div>
 
             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -169,7 +272,7 @@
 
         </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         //student Phone number//
         $(document).ready(function() {
@@ -254,5 +357,5 @@
         });
 
         //Postal / Zip Code End//
-    </script>
+    </script> --}}
 @endsection

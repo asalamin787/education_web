@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('course_name');
-            $table->string('course_date');
+            $table->string('birthday');
             $table->string('image');
             $table->timestamps();
         });

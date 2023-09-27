@@ -316,7 +316,7 @@
                         required autocomplete="new-password" placeholder="Confirm Password">
                 </div>
             </div>
-            <input type="hidden" name="role_id" value="2">
+            <input type="hidden" name="role_id" value="3">
 
             <h5 class=" mb-3">Emergency Contact</h5>
 

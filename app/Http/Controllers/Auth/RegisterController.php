@@ -38,6 +38,9 @@ class RegisterController extends Controller
             return RouteServiceProvider::ADMIN;
         }
         if (auth()->user()->role_id == 2) {
+            return RouteServiceProvider::TEACHER;
+        }
+        if (auth()->user()->role_id == 3) {
             return RouteServiceProvider::USER;
         }
         
