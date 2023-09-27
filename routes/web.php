@@ -27,6 +27,7 @@ Route::middleware(['role:admin','auth'])->group(function () {
     route::get('edit_teacher/{teacher}', [pageController::class, 'edit_teacher'])->name('edit_teacher');
     Route::post('update_teacher/{teacher}', [pageController::class, 'update_teacher'])->name('update_teacher');
     Route::get('delete_teacher/{teacher}', [pageController::class, 'delete_teacher'])->name('delete_teacher');
+    Route::get('teacher_profile_view/{teacher}', [pageController::class, 'teacher_profile_view'])->name('teacher_profile_view');
 
     Route::get('add_course', [pageController::class, 'add_course'])->name('add_course');
     Route::post('course_store', [pageController::class,'course_store'])->name('course_store');

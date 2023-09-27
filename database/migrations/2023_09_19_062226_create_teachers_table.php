@@ -15,10 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('f_name');
             $table->string('l_name');
-            $table->string('school_name');
-            $table->string('job_title');
-            $table->string('street');
-            $table->string('street_2');
+            $table->string('job_designation');
             $table->string('city');
             $table->string('region');
             $table->string('postal');
@@ -27,6 +24,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('course_name');
             $table->string('course_date');
+            $table->string('image');
             $table->timestamps();
         });
     }

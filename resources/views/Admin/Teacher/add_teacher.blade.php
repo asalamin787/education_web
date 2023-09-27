@@ -21,9 +21,16 @@
             <p class="text-secondary">Enter your admission information below</p>
         </div>
 
-        <form action="{{ route('teacher_store') }}" method="post">
+        <form action="{{ route('teacher_store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}<br>
+                    @endforeach
+                </div>
+            @endif
             <h5 class=" pb-2">Teacher Name</h5>
             <div class="row g-3">
                 <div class="col-6">
@@ -37,47 +44,17 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-group">
-
-                        <label class="pt-2" for="">School Name</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder=""
-                            name="school_name" />
-                    </div>
-                </div>
-            </div>
 
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-group">
 
-                        <label class="pt-2" for="">Job Title</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="job_title" />
+                        <label class="pt-2" for="">Job Designation</label>
+                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="job_designation" />
                     </div>
                 </div>
             </div>
 
-            <h5 class=" pb-2">School Address</h5>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-group">
-
-                        <label class="pt-2" for="">Street Address</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="street" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-group">
-
-                        <label class="pt-2" for="">Street Address link 2</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="street_2" />
-                    </div>
-                </div>
-            </div>
 
             <div class="row g-3">
                 <div class="col-6">
@@ -177,6 +154,11 @@
                             name="course_date" />
                     </div>
                 </div>
+            </div>
+
+            <div class="mb-3 mb-3">
+                <label class="pt-2" for="">Image</label>
+                <input type="file" class="form-control" id="recipient-name" name="image">
             </div>
 
             <div class="col-lg-12 col-md-12 col-sm-12">

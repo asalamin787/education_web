@@ -147,19 +147,33 @@ class pageController extends Controller
 
 
 
+   
     public function add_teacher(){
         $courses= Course::latest()->get();
         return view('Admin.Teacher.add_teacher', compact('courses'));
     }
     public function teacher_store(Request $request){
         // dd($request->all());
+        $request->validate([
+            'f_name' => 'required',
+            'l_name' => 'required',
+            'job_designation' => 'required',
+            'city' => 'required',
+            'region' => 'required',
+            'course_name' => 'required',
+            'phone' => 'required',
+            'country' => 'required',
+            'postal' => 'required',
+            'email' => 'required', // Adjust validation rules as needed
+            'course_date' => 'required',
+            // 'password' => 'required',
+            // 'role_id' => 'required|',
+            // 'image' => 'required',
+        ]);
         Teacher::create([
             'f_name' => $request->f_name,
             'l_name' => $request->l_name,
-            'school_name' => $request->school_name,
-            'job_title' => $request->job_title,
-            'street' => $request->street,
-            'street_2' => $request->street_2,
+            'job_designation' => $request->job_designation,
             'city' => $request->city,
             'region' => $request->region,
             'postal' => $request->postal,
@@ -168,8 +182,9 @@ class pageController extends Controller
             'email' => $request->email,
             'course_name' => $request->course_name,
             'course_date' => $request->course_date,
+            'image' =>$request->file('image')->store('public/teacher'),
         ]);
-        return back()->with('success', 'Teacher uploaded successfully.');
+        return redirect('view_teachers')->with('success', 'Admission uploaded successfully.');
     }
     public function view_teachers(){
         $teachers= Teacher::latest()->get();
@@ -180,13 +195,16 @@ class pageController extends Controller
         return view('Admin.Teacher.edit_teacher', compact('teacher','courses'));
     }
     public function update_teacher(Teacher $teacher, Request $request){
+        if($request->has('image')){
+            $image=$request->file('image')->store('public/teacher');
+            Storage::delete($request->image);
+        }else{
+            $image = $teacher->image;
+        }
         $teacher->update([
             'f_name' => $request->f_name,
             'l_name' => $request->l_name,
-            'school_name' => $request->school_name,
-            'job_title' => $request->job_title,
-            'street' => $request->street,
-            'street_2' => $request->street_2,
+            'job_designation' => $request->job_designation,
             'city' => $request->city,
             'region' => $request->region,
             'postal' => $request->postal,
@@ -195,16 +213,24 @@ class pageController extends Controller
             'email' => $request->email,
             'course_name' => $request->course_name,
             'course_date' => $request->course_date,
+            'image'=>$image,
         ]);
         return redirect('view_teachers');
         
     }
     public function delete_teacher(Teacher $teacher){
+        Storage::delete($teacher->image);
         $teacher->delete();
         return redirect('view_teachers');
     }
+    public function teacher_profile_view(Teacher $teacher){
+        return view('Admin.Teacher.teacher_profile_view', compact('teacher'));
+    }
 
 
+   
+   
+   
     public function add_course(){
         return view('Admin.Course.add_course');
     }

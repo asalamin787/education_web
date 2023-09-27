@@ -41,39 +41,8 @@
                 <div class="col-12">
                     <div class="form-group">
 
-                        <label class="pt-2" for="">School Name</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="school_name" value="{{$teacher->school_name}}" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-group">
-
-                        <label class="pt-2" for="">Job Title</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="job_title" value="{{$teacher->job_title}}" />
-                    </div>
-                </div>
-            </div>
-
-            <h5 class=" pb-2">School Address</h5>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-group">
-
-                        <label class="pt-2" for="">Street Address</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="street" value="{{$teacher->street}}" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-group">
-
-                        <label class="pt-2" for="">Street Address link 2</label>
-                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="street_2" value="{{$teacher->street_2}}" />
+                        <label class="pt-2" for="">Job Designation</label>
+                        <input type="text" class="form-control" aria-label="Last name" placeholder="" name="job_designation" value="{{$teacher->job_designation}}" />
                     </div>
                 </div>
             </div>
