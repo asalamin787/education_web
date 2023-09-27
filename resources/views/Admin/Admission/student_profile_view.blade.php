@@ -21,12 +21,8 @@
                 <div class="col-md-4">
                     <div class="profile-img">
                         <img class="rounded-circle"
-                            src="https://www.vhv.rs/dpng/d/256-2569650_men-profile-icon-png-image-free-download-searchpng.png"
+                            src="{{ Storage::url($admission->image) }}"
                             alt="" />
-                        <button type="button" id="two" class="btn" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i
-                                class="fa fa-pencil-square-o w-4 h-4   " aria-hidden="true"></i></button>
-
                     </div>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
@@ -36,23 +32,6 @@
                                     <h5 class="modal-title" id="exampleModalLabel">New Image</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-
-                                    <form action="" method="post" enctype="multipart/form-data">
-                                        @csrf
-                                        
-                                        <!-- Rest of your form fields -->
-                                        <div class="mb-3">
-                                            <input type="file" class="form-control" id="recipient-name" name="image" value="{{$admission->image}}">
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Upload Image</button>
-                                        </div>
-                                    </form>
-
                                 </div>
                             </div>
                         </div>

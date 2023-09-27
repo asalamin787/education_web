@@ -144,11 +144,6 @@ class pageController extends Controller
     public function student_profile_view(Admission $admission){
         return view('Admin.Admission.student_profile_view', compact('admission'));
     }
-    // public function student_profile_store(Request $request){
-    //     Admission::create([
-            
-    //     ]);
-    // }
 
 
 
