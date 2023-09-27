@@ -24,7 +24,14 @@
         <form action="{{ route('update_teacher', $teacher) }}" method="post" enctype="multipart/form-data">
             @csrf
 
-            <h5 class=" pb-2">Teacher Name</h5>
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}<br>
+                    @endforeach
+                </div>
+            @endif
+
             <div class="row gp-3">
                 <div class="col-6">
                     <label class="col-form-label" for="">First Name</label>
@@ -156,7 +163,7 @@
 
         </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         //student Phone number//
         $(document).ready(function() {
@@ -241,5 +248,5 @@
         });
 
         //Postal / Zip Code End//
-    </script>
+    </script> --}}
 @endsection
