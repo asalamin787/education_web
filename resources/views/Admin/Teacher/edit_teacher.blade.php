@@ -25,30 +25,30 @@
             @csrf
 
             <h5 class=" pb-2">Teacher Name</h5>
-            <div class="row g-3">
+            <div class="row gp-3">
                 <div class="col-6">
-                    <label class="pt-2" for="">First Name</label>
+                    <label class="col-form-label" for="">First Name</label>
                     <input type="text" class="form-control" aria-label="First name" name="name" value="{{$teacher->name}}"/>
                 </div>
                 <div class="col-6">
-                    <label class="pt-2" for="">Last Name</label>
+                    <label class="col-form-label" for="">Last Name</label>
                     <input type="text" class="form-control" aria-label="Last name" name="l_name" value="{{$teacher->l_name}}"
                         placeholder="Optional" />
                 </div>
             </div>
 
-            <div class="row mb-3">
+            <div class="row gp-3">
                 <div class="col-6">
                     <div class="form-group">
 
-                        <label class="pt-2" for="">Job Designation</label>
+                        <label class="col-form-label" for="">Job Designation</label>
                         <input type="text" class="form-control" placeholder="Job Designation" name="job_designation" value="{{$teacher->job_designation}}" />
                     </div>
                 </div>
 
                 <div class="col-6">
                     <div class="form-group"> <!-- Date input -->
-                        <label for="">Phone</label>
+                        <label class="col-form-label" for="">Phone</label>
                         <input id="postfix0" type="text" class="form-control" value="{{$teacher->phone}}"
                             placeholder="(000) 000-0000" name="phone" />
                         <p id="error-message0" style="color: red;"></p>
@@ -56,11 +56,11 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
+            <div class="row gp-3">
                 <div class="col-6">
                     <div class="form-group">
 
-                        <label class="pt-2" for="">Course Name</label>
+                        <label class="col-form-label" for="">Course Name</label>
                         <select name="course_name" id="" class="form-control">
                             @foreach($courses as $course)
                             <option @if($teacher->course_name== $course->course_name) selected @endif value="{{$course->course_name}}">{{$course->course_name}}</option>
@@ -72,37 +72,36 @@
                 <div class="col-6">
                     <div class="form-group">
 
-                        <label class="pt-2" for="">Birthday</label>
+                        <label class="col-form-label" for="">Birthday</label>
                         <input type="date" class="form-control" placeholder="Course Dates" value="{{$teacher->birthday}}"
                             name="birthday" />
                     </div>
                 </div>
             </div>
 
-            <div class="row g-3">
+            <div class="row gp-3">
                 <div class="col-6">
-                    <label class="pt-2" for="">City</label>
+                    <label class="col-form-label" for="">City</label>
                     <input type="text" class="form-control" aria-label="First name" name="city" value="{{$teacher->city}}" />
                 </div>
                 <div class="col-6">
-                    <label class="pt-2" for="">Region</label>
+                    <label class="col-form-label" for="">Region</label>
                     <input type="text" class="form-control" aria-label="Last name" name="region" value="{{$teacher->region}}" />
                 </div>
             </div>
 
-            <div class="row g-3">
+            <div class="row gp-3">
                 <div class="col-6">
                     <div class="form-group"> <!-- Date input -->
-                        <label for="">Postal / Zip Code</label>
+                        <label class="col-form-label" for="">Postal / Zip Code</label>
                         <input id="postfix8" type="text" class="form-control" placeholder="(000 000)" value="{{$teacher->postal}}"
                             name="postal" />
-                        <p id="error-message8" style="color: red;"></p>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
 
-                        <label for="">Country</label>
+                        <label class="col-form-label" for="">Country</label>
                         <select class="form-control" name="country" placeholder="Select your country">
                             <option {{ $teacher->country == 'Bangladesh' ? 'selected' : '' }} value="Bangladesh">Bangladesh</option>
                             <option {{ $teacher->country == 'Barbados' ? 'selected' : '' }} value="Barbados">Barbados</option>
@@ -134,7 +133,7 @@
                 <div class="col-12">
                     <div class="form-group">
 
-                        <label class="pt-2" for="">Email Address </label>
+                        <label class="col-form-label" for="">Email Address </label>
                         <input type="email" class="form-control" placeholder="" value="{{$teacher->email}}"
                             name="email" />
                     </div>
@@ -144,7 +143,7 @@
             <div class="mb-3 mb-3">
                 <img class="mb-2" src="{{ Storage::url($teacher->image) }}" alt="" height="100">
                 <div class="form-group">
-                    <label class="pt-2" for="">Image</label>
+                    <label class="col-form-label" for="">Image</label>
                     <input type="file" class="form-control" id="recipient-name" name="image" value="{{$teacher->image}}">
                 </div>
             </div>
