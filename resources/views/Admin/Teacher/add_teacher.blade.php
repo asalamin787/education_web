@@ -98,7 +98,7 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label class="pt-2 col-form-label" for="">Course Name</label>
-                        <select name="course_name" id="" class="form-control" @error('course_name')
+                        <select name="course_id" id="" class="form-control" @error('course_name')
                             is invalid
                         @enderror>
                         @error('course_name')
@@ -108,7 +108,7 @@
                         @enderror
 
                             @foreach ($courses as $course)
-                                <option value="{{ $course->course_name }}">{{ $course->course_name }}</option>
+                                <option value="{{ $course->id }}">{{ $course->course_name }}</option>
                             @endforeach
 
                         </select>

@@ -107,13 +107,13 @@
                     <div class="form-group">
 
                         <label class="form-label" for="">Course Name</label>
-                        <select name="course" id=""
+                        <select name="course_id" id=""
                             class="form-control @error('course')
                                 is-invalid
                             @enderror">
                             <option value=""></option>
                             @foreach ($courses as $course)
-                                <option value="{{ $course->course_name }}">{{ $course->course_name }}</option>
+                                <option value="{{ $course->id }}">{{ $course->course_name }}</option>
                             @endforeach
 
                         </select>

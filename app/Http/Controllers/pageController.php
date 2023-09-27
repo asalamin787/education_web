@@ -31,7 +31,7 @@ class pageController extends Controller
             'l_name' => 'required',
             'roll' => 'required|numeric',
             'registration' => 'required|numeric',
-            'course' => 'required',
+            'course_id' => 'required',
             'birthday' => 'required',
             'gender' => 'required',
             'phone' => 'required',
@@ -57,7 +57,7 @@ class pageController extends Controller
             'l_name' => $request->name,
             'roll' => $request->roll,
             'registration' => $request->registration,
-            'course' => $request->course,
+            'course_id' => $request->course_id,
             'birthday' => $request->birthday,
             'gender' => $request->gender,
             'father' => $request->father,
@@ -67,6 +67,7 @@ class pageController extends Controller
             'phone' => $request->phone,
             'city' => $request->city,
             'postal' => $request->postal,
+            'email' => $request->email,
             'prs_f_name' => $request->prs_f_name,
             'prs_l_name' => $request->prs_l_name,
             'relationship' => $request->relationship,
@@ -107,7 +108,7 @@ class pageController extends Controller
             'l_name' => $request->l_name,
             'roll' => $request->roll,
             'registration' => $request->registration,
-            'course' => $request->course,
+            'course_id' => $request->course_id,
             'birthday' => $request->birthday,
             'gender' => $request->gender,
             'father' => $request->father,
@@ -150,7 +151,7 @@ class pageController extends Controller
             'job_designation' => 'required',
             'city' => 'required',
             'region' => 'required',
-            'course_name' => 'required',
+            'course_id' => 'required',
             'phone' => 'required',
             'country' => 'required',
             'postal' => 'required',
@@ -170,7 +171,7 @@ class pageController extends Controller
             'country' => $request->country,
             'phone' => $request->phone,
             'email' => $request->email,
-            'course_name' => $request->course_name,
+            'course_id' => $request->course_id,
             'birthday' => $request->birthday,
             'image' =>$request->file('image')->store('public/teacher'),
         ]);
@@ -210,7 +211,7 @@ class pageController extends Controller
             'phone' => $request->phone,
             'email' => $request->email,
             'birthday' => $request->birthday,
-            'course_date' => $request->course_date,
+            'course_id' => $request->course_id,
             'image'=>$image,
         ]);
         return redirect('view_teachers');
@@ -264,7 +265,8 @@ class pageController extends Controller
 
 
     public function add_payment(Admission $admission){
-        return view('Admin.Payment.add_payment',compact('admission'));
+        $courses=Course::latest()->get();
+        return view('Admin.Payment.add_payment',compact('admission', 'courses'));
     }
     public function payment_store(Admission $admission,Request $request){
    
@@ -282,12 +284,20 @@ class pageController extends Controller
         return view('Admin.Payment.edit_payment', compact('payment'));
     }
     public function update_payment(Payment $payment, Request $request){
+        if($request->has('image')){
+            $image=$request->file('image')->store('public/payment');
+            Storage::delete($request->image);
+        }else{
+            $image = $payment->image;
+        }
         $payment->update([
+            'image'=>$image,
             'money'=>$request->money,
         ]);
         return redirect('view_payments');
     }
     public function delete_payment(Payment $payment){
+        Storage::delete($payment->image);
         $payment->delete();
         return redirect('view_payments');
     }

@@ -30,7 +30,7 @@
                                 <td scope="row">{{ $teacher->job_designation }}</td>
                                 <td scope="row">{{ $teacher->phone }}</td>
                                 <td scope="row">{{ $teacher->email }}</td>
-                                <td scope="row">{{ $teacher->course_name}}</td>
+                                <td scope="row">{{ $teacher->course ? $admission->course->course_name :'' }}</td>
                                 <td scope="row">{{ $teacher->country}}</td>
 
                                 <td>

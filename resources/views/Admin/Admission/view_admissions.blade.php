@@ -14,11 +14,10 @@
                             <th scope="col">Name</th>
                             <th scope="col">Roll No</th>
                             <th scope="col">Registration No</th>
-                            <th scope="col">Course</th>
+                            <th scope="col">Course Id</th>
                             <th scope="col">Birthday</th>
                             <th scope="col">Gender</th>
-                            <th scope="col">Father Name</th>
-                            <th scope="col">Mother Name</th>
+                            <th scope="col">Email Address</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -29,11 +28,10 @@
                                 <td scope="row">{{ $admission->name }} {{ $admission->m_name }} {{ $admission->l_name }}</td>
                                 <td scope="row">{{ $admission->roll }}</td>
                                 <td scope="row">{{ $admission->registration }}</td>
-                                <td scope="row">{{ $admission->course }}</td>
+                                <td scope="row">{{ $admission->course ? $admission->course->course_name :'' }}</td>
                                 <td scope="row">{{ $admission->birthday }}</td>
                                 <td scope="row">{{ $admission->gender }}</td>
-                                <td scope="row">{{ $admission->father }}</td>
-                                <td scope="row">{{ $admission->mother }}</td>
+                                <td scope="row">{{ $admission->email }}</td>
                                 <td>
                                     <a href="{{route('student_profile_view', $admission)}}" class="btn btn-sm btn-success">View</a>
                                     <a href="{{route('add_payment', $admission)}}" class="btn btn-sm btn-warning">Payment</a>

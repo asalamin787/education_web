@@ -71,14 +71,15 @@
                         <p id="error-message6" style="color: red;"></p>
                     </div>
                 </div>
+                
                 <div class="col-4">
                     <div class="form-group">
 
                         <label class="form-label"  for="">Course Name</label>
-                        <select name="course" id="" class="form-control" placeholder="Course Name">
+                        <select name="course_id" id="" class="form-control" placeholder="Course Name">
                             @foreach ($courses as $course)
-                                <option @if ($admission->course == $course->course_name) selected @endif
-                                    value="{{ $course->course_name }}">{{ $course->course_name }}</option>
+                                <option @if ($admission->course_id == $course->id) selected @endif
+                                    value="{{ $course->id }}">{{ $course->course_name }}</option>
                             @endforeach
 
                         </select>

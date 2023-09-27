@@ -68,9 +68,9 @@
                     <div class="form-group">
 
                         <label class="col-form-label" for="">Course Name</label>
-                        <select name="course_name" id="" class="form-control">
+                        <select name="course_id" id="" class="form-control">
                             @foreach($courses as $course)
-                            <option @if($teacher->course_name== $course->course_name) selected @endif value="{{$course->course_name}}">{{$course->course_name}}</option>
+                            <option @if($teacher->course_id== $course->course_name) selected @endif value="{{$course->id}}">{{$course->course_name}}</option>
                             @endforeach
                           
                            </select>
