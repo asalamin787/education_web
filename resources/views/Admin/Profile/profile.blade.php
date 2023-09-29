@@ -2,7 +2,7 @@
 @section('content')
     <section style="background-color: #eee;">
         <div class="container py-5">
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col">
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
@@ -12,7 +12,7 @@
                         </ol>
                     </nav>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="row">
                 <div class="col-lg-4">
@@ -66,46 +66,46 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Full Name</p>
+                                    <strong class="mb-0">Full Name</strong>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Johnatan Smith</p>
+                                    <p class="text-muted mb-0">{{Auth::user()->name}}</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Email</p>
+                                    <strong class="mb-0">Email</strong>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">example@example.com</p>
+                                    <p class="text-muted mb-0">{{Auth::user()->email}}</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Phone</p>
+                                    <strong class="mb-0">Phone</strong>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">(097) 234-5678</p>
+                                    <p class="text-muted mb-0">{{Auth::user()->phone}}</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Mobile</p>
+                                    <strong class="mb-0">Mobile</strong>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">(098) 765-4321</p>
+                                    <p class="text-muted mb-0">{{Auth::user()->phone}}</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Address</p>
+                                    <strong class="mb-0">Address</strong>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                    <p class="text-muted mb-0">{{Auth::user()->address}}</p>
                                 </div>
                             </div>
                         </div>
