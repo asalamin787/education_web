@@ -39,7 +39,6 @@
                     <label class="form-label" for="form2">Money</label>
                     <input id="postfix4" value="{{$payment->money}}" type="text" class="form-control" placeholder="Optional"
                         name="money" />
-                    <p id="error-message4" style="color: red;"></p>
                 </div>
             </div>
 
@@ -52,35 +51,4 @@
 
         </form>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        //student Id //
-
-        $(document).ready(function() {
-            // Attach an input event handler to the element with id "postfix"
-            $('#postfix4').on('input', function() {
-                // Get the current value of the input field
-                var inputValue = $(this).val();
-                var numericValue = inputValue.replace(/[^0-9]/g, '');
-
-                // Update the input value with the numeric-only value
-                $(this).val(numericValue);
-
-                // Check if the length of the input exceeds 5 characters
-                if (numericValue.length > 10) {
-                    // Truncate the input to 5 characters
-                    $(this).val(numericValue.slice(0, 10));
-
-                    // Display an error message
-                    $('#error-message4').text('Maximum 10 digits allowed.');
-                } else {
-                    // Clear the error message if the input is within the limit
-                    $('#error-message4').text('');
-                }
-            });
-        });
-
-        //student Id end //
-    </script>
 @endsection

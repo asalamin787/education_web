@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">View all student payments </h4>
+            <h4 class="card-title">View all students payments </h4>
             {{-- <a href="{{route('add_payment')}}" class="btn btn-primary">+ Add new</a> --}}
         </div>
         <div class="card-body">
@@ -12,9 +12,6 @@
                         <tr>
                             <th scope="col">id</th>
                             <th scope="col">Admission Id</th>
-                            <th scope="col">Students Name</th>
-                            <th scope="col">Students Roll</th>
-                            <th scope="col">Registration</th>
                             <th scope="col">Money</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -23,10 +20,7 @@
                         @foreach ($payments as $payment)
                             <tr>
                                 <td scope="row">{{ $payment->id }}</td>
-                                <td scope="row">{{ $payment->admission_id }}</td>
-                                <td scope="row">{{ $payment->namr }} {{ $payment->m_name }} {{ $payment->l_name }}</td>
-                                <td scope="row">{{ $payment->roll }}</td>
-                                <td scope="row">{{ $payment->registration }}</td>
+                                <td scope="row">{{ $payment->admission_id }}</td>                                
                                 <td scope="row">{{ $payment->money }}</td>
 
                                 <td>

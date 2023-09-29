@@ -21,10 +21,15 @@
             <div class="card radius-10 border-0 border-start border-primary border-4">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
+         
+                            
                         <div class="">
-                            <p class="mb-1">Total Orders</p>
-                            <h4 class="mb-0 text-primary">248</h4>
+                            <p class="mb-1"></p>
+                            
+                            <h4 class="mb-0 text-primary">{{$admission->count()}}</h4>
+                            
                         </div>
+                 
                         <div class="ms-auto widget-icon bg-primary text-white">
                             <i class="bi bi-basket2-fill"></i>
                         </div>
@@ -41,8 +46,8 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="">
-                            <p class="mb-1">Total Revenue</p>
-                            <h4 class="mb-0 text-success">$1,245</h4>
+                            <p class="mb-1">Total Teacher</p>
+                            <h4 class="mb-0 text-success">{{$teacher->count()}}</h4>
                         </div>
                         <div class="ms-auto widget-icon bg-success text-white">
                             <i class="bi bi-currency-dollar"></i>
@@ -60,8 +65,8 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="">
-                            <p class="mb-1">Bounce Rate</p>
-                            <h4 class="mb-0 text-danger">24.25%</h4>
+                            <p class="mb-1">Totel Course</p>
+                            <h4 class="mb-0 text-danger">{{$course->count()}}</h4>
                         </div>
                         <div class="ms-auto widget-icon bg-danger text-white">
                             <i class="bi bi-graph-down-arrow"></i>
@@ -182,7 +187,7 @@
                         <div class="">
                             <h6 class="mb-0 fw-bold">Team Members</h6>
                         </div>
-                        <div class="dropdown ms-auto">
+                        {{-- <div class="dropdown ms-auto">
                             <button type="button"
                                 class="btn-option dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
                                 data-bs-toggle="dropdown"><i class="bi bi-three-dots fs-4"></i>
@@ -198,18 +203,19 @@
                                 <li><a class="dropdown-item" href="javascript:;">Something else here</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="team-list">
+                        @foreach ($admission as $admission)
                         <div class="d-flex align-items-center gap-3">
                             <div class="">
-                                <img src="assets/images/avatars/01.png" alt="" width="50" height="50"
+                                <img src="{{ Storage::url($admission->image) }}" alt="" width="50" height="50"
                                     class="rounded-circle">
                             </div>
                             <div class="flex-grow-1">
-                                <h6 class="mb-1 fw-bold">John Michael</h6>
+                                <h6 class="mb-1 fw-bold">{{$admission->name}} {{$admission->l_name}}</h6>
                                 <span
                                     class="badge bg-success bg-success-subtle text-success border border-opacity-25 border-success">ONLINE</span>
                             </div>
@@ -218,66 +224,7 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="">
-                                <img src="assets/images/avatars/02.png" alt="" width="50" height="50"
-                                    class="rounded-circle">
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1 fw-bold">Samantha Ivy</h6>
-                                <span class="badge bg-danger-subtle text-danger border border-opacity-25 border-danger">IN
-                                    MEETING</span>
-                            </div>
-                            <div class="">
-                                <button class="btn btn-outline-primary rounded-5 btn-sm px-3">Add</button>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="">
-                                <img src="assets/images/avatars/03.png" alt="" width="50" height="50"
-                                    class="rounded-circle">
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1 fw-bold">Alex Smith</h6>
-                                <span
-                                    class="badge bg-warning-subtle text-warning border border-opacity-25 border-warning">OFFLINE</span>
-                            </div>
-                            <div class="">
-                                <button class="btn btn-outline-primary rounded-5 btn-sm px-3">Add</button>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="">
-                                <img src="assets/images/avatars/04.png" alt="" width="50" height="50"
-                                    class="rounded-circle">
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1 fw-bold">Alex Smith</h6>
-                                <span
-                                    class="badge bg-danger-subtle text-danger border border-opacity-25 border-danger">OFFLINE</span>
-                            </div>
-                            <div class="">
-                                <button class="btn btn-outline-primary rounded-5 btn-sm px-3">Add</button>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="">
-                                <img src="assets/images/avatars/02.png" alt="" width="50" height="50"
-                                    class="rounded-circle">
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1 fw-bold">Samantha</h6>
-                                <span
-                                    class="badge bg-success-subtle text-success border border-opacity-25 border-success">IN
-                                    MEETING</span>
-                            </div>
-                            <div class="">
-                                <button class="btn btn-outline-primary rounded-5 btn-sm px-3">Add</button>
-                            </div>
-                        </div>
+                        @endforeach
 
                     </div>
                 </div>

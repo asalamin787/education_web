@@ -34,47 +34,6 @@
                 </div>
             </div> --}}
              {{-- <input type="hidden" name="admission" value="{{$admission->id}}"> --}}
-             <div class="row g-3 mb-3">
-                <div class="col-4">
-                    <label class="form-label" for="">First Name</label><br>
-                    <strong >{{ $admission->name }}</strong>
-                </div>
-                <div class="col-4">
-                    <label class="form-label"  for="">Middle Initial</label><br>
-                    <strong >{{ $admission->l_name }}</strong>
-                </div>
-                <div class="col-4">
-                    <label class="form-label"  for="">Last Name</label><br>
-                    <strong >{{ $admission->m_name }}</strong>
-                </div>
-            </div>
-
-            <div class="row g-3">
-                <div class="col-4">
-                    <div class="form-group"> <!-- Date input -->
-                        <label class="form-label"  for="">Roll No</label><br>
-                        <strong >{{ $admission->roll }}</strong>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group"> <!-- Date input -->
-                        <label class="form-label"  for="">Registration No</label><br>
-                        <strong >{{ $admission->registration }}</strong>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <label class="form-label"  for="">Registration No</label><br>
-                    <strong >{{ $admission->course}}</strong>
-                </div>
-            </div>
-
-            <div class="mb-3 mb-3" >
-                <img class="mb-2" src="{{ Storage::url($admission->image) }}" alt="" height="100">
-                <div class="form-group" style="display: none">
-                    <label class="col-form-label" for="">Image</label>
-                    <strong >{{ $admission->image }}</strong>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-12">

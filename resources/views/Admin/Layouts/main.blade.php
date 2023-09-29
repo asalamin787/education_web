@@ -446,7 +446,7 @@
               <img src="{{asset('assets/images/logo-icon.png')}}" class="logo-img" alt="">
             </div>
             <div class="logo-name flex-grow-1">
-              <h5 class="mb-0">Roksyn</h5>
+              <h5 class="mb-0">ACME CITY COLLEGE</h5>
             </div>
             <div class="sidebar-close ">
               <span class="material-symbols-outlined">close</span>
@@ -486,7 +486,7 @@
                     </li>
                   </ul>
                 </li>
-                <li class="menu-label">UI Elements</li>
+                {{-- <li class="menu-label">UI Elements</li>
                 <li>
                   <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><span class="material-symbols-outlined">widgets</span>
@@ -759,7 +759,7 @@
                     </div>
                     <div class="menu-title">Support</div>
                   </a>
-                </li>
+                </li> --}}
               </ul>
               <!--end navigation-->
 
@@ -827,7 +827,7 @@
     <!--end overlay-->
 
     <!-- Search Modal -->
-    <div class="modal" id="exampleModal" tabindex="-1">
+    {{-- <div class="modal" id="exampleModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header gap-2">
@@ -871,7 +871,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
 
     <!--start theme customization-->

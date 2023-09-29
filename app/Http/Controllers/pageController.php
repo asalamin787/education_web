@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Payment;
 use App\Models\Teacher;
 use App\Models\User;
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Ui\Presets\React;
@@ -15,7 +16,10 @@ use Laravel\Ui\Presets\React;
 class pageController extends Controller
 {
     public function index1(){
-        return view('Admin.index');
+        $admission=Admission::latest()->limit(5)->get();
+        $teacher=Teacher::latest()->get();
+        $course=Course::latest()->get();
+        return view('Admin.index', compact('admission', 'teacher', 'course'));
     }
 
     public function add_admission (){
