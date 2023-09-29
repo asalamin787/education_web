@@ -15,7 +15,7 @@
                             <th scope="col">Image</th>
                             <th scope="col">Job Designation</th>
                             <th scope="col">Phone</th>
-                            <th scope="col">E-mail</th>
+                            <th scope="col">E-mail Address</th>
                             <th scope="col">Course Name</th>
                             <th scope="col">Country</th>
                             <th scope="col">Action</th>
@@ -30,7 +30,7 @@
                                 <td scope="row">{{ $teacher->job_designation }}</td>
                                 <td scope="row">{{ $teacher->phone }}</td>
                                 <td scope="row">{{ $teacher->email }}</td>
-                                <td scope="row">{{ $teacher->course ? $admission->course->course_name :'' }}</td>
+                                <td scope="row">{{ $teacher->course ? $teacher->course->course_name :'' }}</td>
                                 <td scope="row">{{ $teacher->country}}</td>
 
                                 <td>

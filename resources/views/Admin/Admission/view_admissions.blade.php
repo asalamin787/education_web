@@ -12,9 +12,10 @@
                         <tr>
                             <th scope="col">id</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Roll No</th>
                             <th scope="col">Registration No</th>
-                            <th scope="col">Course Id</th>
+                            <th scope="col">Course Name</th>
                             <th scope="col">Birthday</th>
                             <th scope="col">Gender</th>
                             <th scope="col">Email Address</th>
@@ -26,6 +27,7 @@
                             <tr>
                                 <td scope="row">{{ $admission->id }}</td>
                                 <td scope="row">{{ $admission->name }} {{ $admission->m_name }} {{ $admission->l_name }}</td>
+                                <td scope="row"><img style="width: 60px; height:60px;"src="{{ Storage::url($admission->image) }}" alt=""></td>
                                 <td scope="row">{{ $admission->roll }}</td>
                                 <td scope="row">{{ $admission->registration }}</td>
                                 <td scope="row">{{ $admission->course ? $admission->course->course_name :'' }}</td>

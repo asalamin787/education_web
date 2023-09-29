@@ -43,7 +43,7 @@
                             {{ $admission->name }} {{ $admission->m_name }} {{ $admission->l_name }}
                         </h5>
                         <h6>
-                            {{ $admission->course }}
+                            {{ $admission->course ? $admission->course->course_name :'' }}
                         </h6>
                         <p class="proile-rating">ROLL NO : <span>{{ $admission->roll }}</span></p>
                         <p class="proile-rating">REGISTRATION : <span>{{ $admission->registration }}</span></p>

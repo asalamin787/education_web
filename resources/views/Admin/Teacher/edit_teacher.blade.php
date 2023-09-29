@@ -58,7 +58,6 @@
                         <label class="col-form-label" for="">Phone</label>
                         <input id="postfix0" type="text" class="form-control" value="{{$teacher->phone}}"
                             placeholder="(000) 000-0000" name="phone" />
-                        <p id="error-message0" style="color: red;"></p>
                     </div>
                 </div>
             </div>
@@ -136,7 +135,7 @@
                 </div>
             </div>
 
-            <div class="row gp-3 mb-3">
+            {{-- <div class="row gp-3 mb-3">
                 <div class="col-12">
                     <div class="form-group">
 
@@ -145,7 +144,7 @@
                             name="email" />
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="mb-3 mb-3">
                 <img class="mb-2" src="{{ Storage::url($teacher->image) }}" alt="" height="100">
@@ -163,90 +162,4 @@
 
         </form>
     </div>
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        //student Phone number//
-        $(document).ready(function() {
-            // Attach an input event handler to the element with id "postfix"
-            $('#postfix0').on('input', function() {
-                // Get the current value of the input field
-                var inputValue = $(this).val();
-                var numericValue = inputValue.replace(/[^0-9]/g, '');
-
-                // Update the input value with the numeric-only value
-                $(this).val(numericValue);
-
-                // Check if the length of the input exceeds 5 characters
-                if (numericValue.length > 11) {
-                    // Truncate the input to 5 characters
-                    $(this).val(numericValue.slice(0, 11));
-
-                    // Display an error message
-                    $('#error-message0').text('Maximum 11 digits allowed.');
-                } else {
-                    // Clear the error message if the input is within the limit
-                    $('#error-message0').text('');
-                }
-            });
-        });
-
-        //Phone number end//
-
-        //Emergency Phone number//
-
-        $(document).ready(function() {
-            // Attach an input event handler to the element with id "postfix"
-            $('#postfix3').on('input', function() {
-                // Get the current value of the input field
-                var inputValue = $(this).val();
-                var numericValue = inputValue.replace(/[^0-9]/g, '');
-
-                // Update the input value with the numeric-only value
-                $(this).val(numericValue);
-
-                // Check if the length of the input exceeds 5 characters
-                if (numericValue.length > 11) {
-                    // Truncate the input to 5 characters
-                    $(this).val(numericValue.slice(0, 11));
-
-                    // Display an error message
-                    $('#error-message3').text('Maximum 11 digits allowed.');
-                } else {
-                    // Clear the error message if the input is within the limit
-                    $('#error-message3').text('');
-                }
-            });
-        });
-
-        //Phone number end//
-
-
-        //Postal / Zip Code //
-
-        $(document).ready(function() {
-            // Attach an input event handler to the element with id "postfix"
-            $('#postfix8').on('input', function() {
-                // Get the current value of the input field
-                var inputValue = $(this).val();
-                var numericValue = inputValue.replace(/[^0-9]/g, '');
-
-                // Update the input value with the numeric-only value
-                $(this).val(numericValue);
-
-                // Check if the length of the input exceeds 5 characters
-                if (numericValue.length > 6) {
-                    // Truncate the input to 5 characters
-                    $(this).val(numericValue.slice(0, 6));
-
-                    // Display an error message
-                    $('#error-message8').text('Maximum 6 digits allowed.');
-                } else {
-                    // Clear the error message if the input is within the limit
-                    $('#error-message8').text('');
-                }
-            });
-        });
-
-        //Postal / Zip Code End//
-    </script> --}}
 @endsection

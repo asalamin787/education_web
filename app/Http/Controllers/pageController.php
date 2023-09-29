@@ -210,7 +210,6 @@ class pageController extends Controller
             'postal' => $request->postal,
             'country' => $request->country,
             'phone' => $request->phone,
-            'email' => $request->email,
             'birthday' => $request->birthday,
             'course_id' => $request->course_id,
             'image'=>$image,

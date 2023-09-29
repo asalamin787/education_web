@@ -44,7 +44,7 @@
                         <h6>
                             {{ $teacher->job_designation }}
                         </h6>
-                        <p class="proile-rating">Course Name : <span>{{ $teacher->course_name }}</span></p>
+                        <p class="proile-rating">Course Name : <span>{{ $teacher->course ? $teacher->course->course_name :'' }}</span></p>
                         <p class="proile-rating">Birthday : <span>{{ $teacher->birthday }}</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
