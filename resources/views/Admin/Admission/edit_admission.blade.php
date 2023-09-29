@@ -40,38 +40,13 @@
                     <input type="text" class="form-control" aria-label="First name" name="name"
                         value="{{ $admission->name }}" />
                 </div>
-                <div class="col-4">
-                    <label class="form-label"  for="">Middle Initial</label>
-                    <input type="text" class="form-control" aria-label="Last name" name="m_name" placeholder="Optional"
-                        value="{{ $admission->m_name }}" />
-                </div>
+
                 <div class="col-4">
                     <label class="form-label"  for="">Last Name</label>
                     <input type="text" class="form-control" aria-label="Last name" name="l_name"
                         value="{{ $admission->l_name }}" />
                 </div>
-            </div>
 
-
-
-            <div class="row g-3">
-                <div class="col-4">
-                    <div class="form-group"> <!-- Date input -->
-                        <label class="form-label"  for="">Roll No</label>
-                        <input id="postfix5" type="text" class="form-control" name="roll"
-                            value="{{ $admission->roll }}" />
-                        <p id="error-message5" style="color: red;"></p>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group"> <!-- Date input -->
-                        <label class="form-label"  for="">Registration No</label>
-                        <input id="postfix6" type="text" class="form-control" placeholder="(0000) 0000-0000"
-                            name="registration" value="{{ $admission->registration }}" />
-                        <p id="error-message6" style="color: red;"></p>
-                    </div>
-                </div>
-                
                 <div class="col-4">
                     <div class="form-group">
 

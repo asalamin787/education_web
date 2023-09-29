@@ -32,10 +32,9 @@ class pageController extends Controller
             $roll=$admission->roll+1;
             $reg=$admission->registration+1;
         }
-        dd($admission==null);
+        // dd($admission==null);
         $request->validate([
             'name' => 'required',
-            'm_name' => 'required',
             'l_name' => 'required',
             'course_id' => 'required',
             'birthday' => 'required',
@@ -59,7 +58,6 @@ class pageController extends Controller
   
         Admission::create([
             'name' => $request->name,
-            'm_name' => $request->name,
             'l_name' => $request->name,
             'roll' => $roll,
             'registration' => $reg,
@@ -110,7 +108,6 @@ class pageController extends Controller
         }
         $admission->update([
             'name' => $request->name,
-            'm_name' => $request->m_name,
             'l_name' => $request->l_name,
             'course_id' => $request->course_id,
             'birthday' => $request->birthday,

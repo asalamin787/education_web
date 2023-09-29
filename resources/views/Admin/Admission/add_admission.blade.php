@@ -47,12 +47,6 @@
                 </div>
 
                 <div class="col-4">
-                    <label class="form-label" for="">Middle Initial</label>
-                    <input type="text" value="{{ old('m_name') }}" class="form-control" aria-label="Last name"
-                        name="m_name" placeholder="Optional" />
-                </div>
-
-                <div class="col-4">
                     <label class="form-label" for="">Last Name</label>
                     <input type="text" value="{{ old('l_name') }}"
                         class="form-control @error('l_name')
@@ -64,43 +58,6 @@
                             <strong>{{ $message }}</strong>
                         </p>
                     @enderror
-                </div>
-            </div>
-
-
-
-            <div class="row g-3 mb-3">
-                <div class="col-4">
-                    <div class="form-group"> <!-- Date input -->
-                        <label class="form-label" for="">Roll No</label>
-                        <input id="postfix0" value="{{ old('roll') }}" type="text"
-                            class="form-control @error('roll')
-                            is-invalid
-                        @enderror"
-                            placeholder="Roll No" name="roll" />
-                        @error('roll')
-                            <p class="invalid-feedback">
-                                <strong>{{ $message }}</strong>
-                            </p>
-                        @enderror
-
-                    </div>
-                </div>
-
-                <div class="col-4">
-                    <div class="form-group"> <!-- Date input -->
-                        <label class="form-label" for="">Registration No</label>
-                        <input id="postfix6" value="{{ old('registration') }}" type="text"
-                            class="form-control @error('registration')
-                            is-invalid
-                        @enderror"
-                            placeholder="Registration" name="registration" />
-                        @error('registration')
-                            <p class="invalid-feedback">
-                                <strong>{{ $message }}</strong>
-                            </p>
-                        @enderror
-                    </div>
                 </div>
 
                 <div class="col-4">
@@ -125,7 +82,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="row g-3 mb-3">
                 <div class="col-4">

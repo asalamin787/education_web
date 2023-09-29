@@ -46,7 +46,11 @@ Route::middleware(['role:admin','auth'])->group(function () {
     Route::get('profile', [pageController::class, 'profile'])->name('profile');
 });
 
-Route::middleware(['role:user','auth' ])->group(function(){
+Route::middleware(['role:teacher','auth'])->group(function() {
+
+});
+
+Route::middleware(['role:user','auth' ])->group(function() {
     
 });
 
