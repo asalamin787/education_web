@@ -23,14 +23,20 @@ class pageController extends Controller
         return view('Admin.Admission.add_admission', compact('courses'));
     }
     public function admission_store(Request $request){
-    //    dd($request->all());
+
         $admission=Admission::latest()->first();
+        if($admission==null){
+            $roll=12312001;
+            $reg=14151401;
+        }else{
+            $roll=$admission->roll+1;
+            $reg=$admission->registration+1;
+        }
+        dd($admission==null);
         $request->validate([
             'name' => 'required',
             'm_name' => 'required',
             'l_name' => 'required',
-            'roll' => 'required|numeric',
-            'registration' => 'required|numeric',
             'course_id' => 'required',
             'birthday' => 'required',
             'gender' => 'required',
@@ -50,13 +56,13 @@ class pageController extends Controller
             'prs_phone' => 'required',
             // 'image' => 'required',
         ]);
-    
+  
         Admission::create([
             'name' => $request->name,
             'm_name' => $request->name,
             'l_name' => $request->name,
-            'roll' => $request->roll,
-            'registration' => $request->registration,
+            'roll' => $roll,
+            'registration' => $reg,
             'course_id' => $request->course_id,
             'birthday' => $request->birthday,
             'gender' => $request->gender,
@@ -106,8 +112,6 @@ class pageController extends Controller
             'name' => $request->name,
             'm_name' => $request->m_name,
             'l_name' => $request->l_name,
-            'roll' => $request->roll,
-            'registration' => $request->registration,
             'course_id' => $request->course_id,
             'birthday' => $request->birthday,
             'gender' => $request->gender,
