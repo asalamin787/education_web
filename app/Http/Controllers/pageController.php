@@ -16,10 +16,11 @@ use Laravel\Ui\Presets\React;
 class pageController extends Controller
 {
     public function index1(){
-        $admission=Admission::latest()->limit(5)->get();
+        $admissions=Admission::latest()->limit(5)->get();
         $teacher=Teacher::latest()->get();
         $course=Course::latest()->get();
-        return view('Admin.index', compact('admission', 'teacher', 'course'));
+        $payments=Payment::latest()->get();
+        return view('Admin.index', compact('admissions', 'teacher', 'course', 'payments'));
     }
 
     public function add_admission (){
@@ -266,6 +267,10 @@ class pageController extends Controller
         $course->delete();
         return redirect('view_courses');
     }
+    public function course_students_view(Course $course){
+     
+        return view('Admin.Course.course_students_view',compact('course'));
+    }
 
 
     public function add_payment(Admission $admission){
@@ -304,6 +309,10 @@ class pageController extends Controller
         Storage::delete($payment->image);
         $payment->delete();
         return redirect('view_payments');
+    }
+    public function payment_students_view(Admission $admission){
+        // $admissions=Admission::latest()->get();
+        return view('Admin.Payment.payment_students_view', compact('admission'));
     }
 
     public function profile(){

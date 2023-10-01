@@ -35,6 +35,7 @@ Route::middleware(['role:admin','auth'])->group(function () {
     Route::get('edit_course/{course}',[pageController::class,'edit_course'])->name('edit_course');
     Route::post('update_course/{course}', [pageController::class, 'update_course'])->name('update_course');
     Route::get('delete_course/{course}', [pageController::class, 'delete_course'])->name('delete_course');
+    Route::get('course_students_view/{course}', [pageController::class, 'course_students_view'])->name('course_students_view');
 
     Route::get('add_payment/{admission}', [pageController::class, 'add_payment'])->name('add_payment');
     Route::post('payment_store/{admission}', [pageController::class, 'payment_store'])->name('payment_store');
@@ -42,6 +43,7 @@ Route::middleware(['role:admin','auth'])->group(function () {
     Route::get('edit_payment/{payment}', [pageController::class, 'edit_payment'])->name('edit_payment');
     Route::post('update_payment/{payment}', [pageController::class, 'update_payment'])->name('update_payment');
     Route::get('delete_payment/{payment}', [pageController::class, 'delete_payment'])->name('delete_payment');
+    Route::get('payment_students_view/{admission}', [pageController::class, 'payment_students_view'])->name('payment_students_view');
 
     Route::get('profile', [pageController::class, 'profile'])->name('profile');
 });

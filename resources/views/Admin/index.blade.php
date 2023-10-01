@@ -1,7 +1,6 @@
 @extends('Admin.Layouts.main')
+{{--  --}}
 @section('content')
-    <!--start main content-->
-
     <div class="row g-2 py-4 mb-3 border-bottom">
         <div class="col-6">
             <img style="width: 100%;" src="{{ asset('assets/images/admission/Asset.png') }}" alt="">
@@ -21,15 +20,15 @@
             <div class="card radius-10 border-0 border-start border-primary border-4">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
-         
-                            
+
+
                         <div class="">
-                            <p class="mb-1"></p>
-                            
-                            <h4 class="mb-0 text-primary">{{$admission->count()}}</h4>
-                            
+                            <p class="mb-1">Total Students</p>
+
+                            <h4 class="mb-0 text-primary">{{ $admissions->count() }}</h4>
+
                         </div>
-                 
+
                         <div class="ms-auto widget-icon bg-primary text-white">
                             <i class="bi bi-basket2-fill"></i>
                         </div>
@@ -47,7 +46,7 @@
                     <div class="d-flex align-items-center">
                         <div class="">
                             <p class="mb-1">Total Teacher</p>
-                            <h4 class="mb-0 text-success">{{$teacher->count()}}</h4>
+                            <h4 class="mb-0 text-success">{{ $teacher->count() }}</h4>
                         </div>
                         <div class="ms-auto widget-icon bg-success text-white">
                             <i class="bi bi-currency-dollar"></i>
@@ -66,7 +65,7 @@
                     <div class="d-flex align-items-center">
                         <div class="">
                             <p class="mb-1">Totel Course</p>
-                            <h4 class="mb-0 text-danger">{{$course->count()}}</h4>
+                            <h4 class="mb-0 text-danger">{{ $course->count() }}</h4>
                         </div>
                         <div class="ms-auto widget-icon bg-danger text-white">
                             <i class="bi bi-graph-down-arrow"></i>
@@ -84,8 +83,8 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="">
-                            <p class="mb-1">New Users</p>
-                            <h4 class="mb-0 text-warning">214</h4>
+                            <p class="mb-1">Totel Users</p>
+                            <h4 class="mb-0 text-warning">{{ Auth::user()->count() }}</h4>
                         </div>
                         <div class="ms-auto widget-icon bg-warning text-dark">
                             <i class="bi bi-people-fill"></i>
@@ -208,22 +207,23 @@
                 </div>
                 <div class="card-body">
                     <div class="team-list">
-                        @foreach ($admission as $admission)
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="">
-                                <img src="{{ Storage::url($admission->image) }}" alt="" width="50" height="50"
-                                    class="rounded-circle">
+                        @foreach ($admissions as $admission)
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="">
+                                    <img src="{{ Storage::url($admission->image) }}" alt="" width="50"
+                                        height="50" class="rounded-circle">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1 fw-bold">{{ $admission->name }} {{ $admission->l_name }}</h6>
+                                    <span
+                                        class="badge bg-success bg-success-subtle text-success border border-opacity-25 border-success">ONLINE</span>
+                                </div>
+                                <div class="">
+                                    <a href="{{route('payment_students_view', $admission)}}"
+                                        class="btn btn-outline-primary rounded-5 btn-sm px-3">View</a>
+                                </div>
                             </div>
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1 fw-bold">{{$admission->name}} {{$admission->l_name}}</h6>
-                                <span
-                                    class="badge bg-success bg-success-subtle text-success border border-opacity-25 border-success">ONLINE</span>
-                            </div>
-                            <div class="">
-                                <button class="btn btn-outline-primary rounded-5 btn-sm px-3">Add</button>
-                            </div>
-                        </div>
-                        <hr>
+                            <hr>
                         @endforeach
 
                     </div>
@@ -235,9 +235,9 @@
                 <div class="card-header bg-transparent">
                     <div class="d-flex align-items-center">
                         <div class="">
-                            <h6 class="mb-0 fw-bold">To do list</h6>
+                            <h6 class="mb-0 fw-bold">Courses list</h6>
                         </div>
-                        <div class="dropdown ms-auto">
+                        {{-- <div class="dropdown ms-auto">
                             <button type="button"
                                 class="btn-option dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
                                 data-bs-toggle="dropdown"><i class="bi bi-three-dots fs-4"></i>
@@ -253,68 +253,35 @@
                                 <li><a class="dropdown-item" href="javascript:;">Something else here</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="team-list">
-                        <div
-                            class="d-flex align-items-center gap-3 border-start border-success border-4 border-0 px-2 py-1">
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1 fw-bold">Meeeting with John</h6>
-                                <span class="">10:56 PM</span>
+                        @foreach ($course as $course)
+                            <div class="d-flex align-items-center gap-3">
+                                {{-- <div class="">
+                                <img src="" alt="" width="50" height="50"
+                                    class="rounded-circle">
+                            </div> --}}
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1 fw-bold">{{ $course->course_name }}</h6>
+                                    <strong class="mb-1 fw-bold">{{ $course->admissions->count() }}</strong>
+                                </div>
+                                <div class="">
+                                    <a href="{{route('course_students_view', $course)}}"
+                                        class="btn btn-outline-primary rounded-5 btn-sm px-3">View</a>
+                                </div>
+
                             </div>
-                            <div class="form-check form-switch form-check-success border-0">
-                                <input class="form-check-input border-1" type="checkbox" role="switch" checked="">
-                            </div>
-                        </div>
-                        <hr>
-                        <div
-                            class="d-flex align-items-center gap-3 border-start border-danger border-4 border-0 px-2 py-1">
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1 fw-bold">Meeeting with John</h6>
-                                <span class="">10:56 PM</span>
-                            </div>
-                            <div class="form-check form-switch form-check-danger border-0">
-                                <input class="form-check-input border-1" type="checkbox" role="switch" checked="">
-                            </div>
-                        </div>
-                        <hr>
-                        <div
-                            class="d-flex align-items-center gap-3 border-start border-primary border-4 border-0 px-2 py-1">
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1 fw-bold">Meeeting with John</h6>
-                                <span class="">10:56 PM</span>
-                            </div>
-                            <div class="form-check form-switch form-check-primary border-0">
-                                <input class="form-check-input border-1" type="checkbox" role="switch" checked="">
-                            </div>
-                        </div>
-                        <hr>
-                        <div
-                            class="d-flex align-items-center gap-3 border-start border-warning border-4 border-0 px-2 py-1">
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1 fw-bold">Meeeting with John</h6>
-                                <span class="">10:56 PM</span>
-                            </div>
-                            <div class="form-check form-switch form-check-warning border-0">
-                                <input class="form-check-input border-1" type="checkbox" role="switch" checked="">
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="d-flex align-items-center gap-3 border-start border-info border-4 border-0 px-2 py-1">
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1 fw-bold">Meeeting with John</h6>
-                                <span class="">10:56 PM</span>
-                            </div>
-                            <div class="form-check form-switch form-check-info border-0">
-                                <input class="form-check-input border-1" type="checkbox" role="switch" checked="">
-                            </div>
-                        </div>
+                            <hr>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="col-12 col-lg-12 col-xl-4 d-flex">
             <div class="card w-100">
                 <div class="card-header bg-transparent">
@@ -341,76 +308,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
+                {{-- <div class="card-body">
                     <div class="team-list">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="widget-icon bg-transparent border rounded-3">
-                                <img src="assets/images/icons/apple.png" alt="" width="30">
+                        @foreach ($admissions as $admission)
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="">
+                                <img src="" alt="" width="50" height="50"
+                                    class="rounded-circle">
                             </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-2 fw-bold">Angular 12 Dashboard</p>
-                                <div class="progress" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1 fw-bold"></h6>
+                                    <strong class="mb-1 fw-bold">{{$admission->payments}}</strong>
                                 </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="widget-icon bg-transparent border rounded-3">
-                                <img src="assets/images/icons/bootstrap.png" alt="" width="30">
-                            </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-2 fw-bold">Angular 12 Dashboard</p>
-                                <div class="progress" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="75"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="">
+                                    <a href=""
+                                        class="btn btn-outline-primary rounded-5 btn-sm px-3">View</a>
                                 </div>
+        
                             </div>
-                        </div>
-                        <hr>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="widget-icon bg-transparent border rounded-3">
-                                <img src="assets/images/icons/google-2.png" alt="" width="30">
-                            </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-2 fw-bold">Angular 12 Dashboard</p>
-                                <div class="progress" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="75"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="widget-icon bg-transparent border rounded-3">
-                                <img src="assets/images/icons/spotify.png" alt="" width="30">
-                            </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-2 fw-bold">Angular 12 Dashboard</p>
-                                <div class="progress" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 55%;" aria-valuenow="75"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="widget-icon bg-transparent border rounded-3">
-                                <img src="assets/images/icons/outlook.png" alt="" width="30">
-                            </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-2 fw-bold">Angular 12 Dashboard</p>
-                                <div class="progress" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 45%;" aria-valuenow="75"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
+                            <hr>
+                        @endforeach
+        
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
+        
     </div><!--end row-->
 
 

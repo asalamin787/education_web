@@ -26,7 +26,7 @@
                         @foreach ($admissions as $admission)
                             <tr>
                                 <td scope="row">{{ $admission->id }}</td>
-                                <td scope="row">{{ $admission->name }} {{ $admission->m_name }} {{ $admission->l_name }}</td>
+                                <td scope="row">{{ $admission->name }} {{ $admission->l_name }}</td>
                                 <td scope="row"><img style="width: 60px; height:60px;"src="{{ Storage::url($admission->image) }}" alt=""></td>
                                 <td scope="row">{{ $admission->roll }}</td>
                                 <td scope="row">{{ $admission->registration }}</td>
