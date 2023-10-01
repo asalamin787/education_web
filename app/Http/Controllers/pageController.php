@@ -311,8 +311,8 @@ class pageController extends Controller
         return redirect('view_payments');
     }
     public function payment_students_view(Admission $admission){
-        // $admissions=Admission::latest()->get();
-        return view('Admin.Payment.payment_students_view', compact('admission'));
+        $payments=Payment::latest()->get();
+        return view('Admin.Payment.payment_students_view', compact('admission', 'payments'));
     }
 
     public function profile(){
