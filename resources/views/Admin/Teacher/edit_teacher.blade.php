@@ -146,7 +146,7 @@
                 </div>
             </div> --}}
 
-            <div class="mb-3 mb-3">
+            <div class="mb-3 mb-3 mt-2">
                 <img class="mb-2" src="{{ Storage::url($teacher->image) }}" alt="" height="100">
                 <div class="form-group">
                     <label class="col-form-label" for="">Image</label>

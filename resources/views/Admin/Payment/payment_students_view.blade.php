@@ -27,7 +27,7 @@
                                 <td>
                                     <a href="javascript:;">{{ $admission->id }}</a>
                                 </td>
-                                <td>{{$admission->payments->sum('money')}}</td>
+                                <td>{{ number_format($admission->payments->sum('money')) }}/=</td>
                                 <td>
                                     <a class="d-flex align-items-center gap-3" href="javascript:;">
                                         <div class="customer-pic">
