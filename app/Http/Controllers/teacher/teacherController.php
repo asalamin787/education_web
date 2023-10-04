@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class teacherController extends Controller
@@ -32,7 +33,7 @@ class teacherController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {   
         $request->validate([
             'name' => 'required',
             'l_name' => 'required',
@@ -64,6 +65,9 @@ class teacherController extends Controller
             'image' =>$request->file('image')->store('public/teacher'),
         ]);
 
+
+        // Create User record
+        
         // Create User record
         User::create([
             'name' => $request->name,

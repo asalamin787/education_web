@@ -63,7 +63,7 @@
                 <div class="table-responsive white-space-nowrap">
                     <table class="table align-middle">
                         <thead class="table-light">
-                            <tr>
+                            <tr class=" text-center">
                                 <th>
                                     <input class="form-check-input" type="checkbox">
                                 </th>
@@ -79,7 +79,7 @@
                         </thead>
                         <tbody>
                             @foreach ($teachers as $teacher)
-                                <tr>
+                                <tr class=" text-center">
                                     <td>
                                         <input class="form-check-input" type="checkbox">
                                     </td>

@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="mb-3">
-            <h1 class="fw-normal">Payment Form</h1>
+            <h1 class="fw-normal">ADD Payment</h1>
             <p class="text-secondary">Enter your Payment information below</p>
         </div>
         <form action="{{ route('payment_store',$admission) }}" method="post" enctype="multipart/form-data">

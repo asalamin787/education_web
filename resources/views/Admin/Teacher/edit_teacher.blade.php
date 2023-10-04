@@ -17,7 +17,7 @@
         </div>
 
         <div class="mb-3">
-            <h1 class="fw-normal">TEACHER ADMISSIONS FORM</h1>
+            <h1 class="fw-normal">EDIT TEACHER JOB ADMISSIONS FORM</h1>
             <p class="text-secondary">Enter your admission information below</p>
         </div>
 

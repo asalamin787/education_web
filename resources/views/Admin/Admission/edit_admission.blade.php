@@ -17,7 +17,7 @@
         </div>
 
         <div class="mb-3">
-            <h1 class="fw-normal">COLLEGE ADMISSIONS FORM</h1>
+            <h1 class="fw-normal">EDIT STUDENT ADMISSIONS</h1>
             <p class="text-secondary">Enter your admission information below</p>
         </div>
 

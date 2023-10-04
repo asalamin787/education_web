@@ -66,11 +66,15 @@ Route::middleware(['role:admin','auth'])->group(function () {
 });
 
 Route::middleware(['role:teacher','auth'])->group(function() {
-
+    Route::controller(pageController::class)->group(function() {
+        // Route::get('/index','index1')->name('index');
+    });
 });
 
 Route::middleware(['role:user','auth' ])->group(function() {
-    
+    Route::controller(pageController::class)->group(function() {
+        // Route::get('/index','index1')->name('index');
+    });
 });
 
 Auth::routes();

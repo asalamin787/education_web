@@ -17,7 +17,7 @@
         </div>
 
         <div class="mb-3">
-            <h1 class="fw-normal">COURSE FORM</h1>
+            <h1 class="fw-normal">ADD COURSE</h1>
             <p class="text-secondary">Enter your course information below</p>
         </div>
 
@@ -28,9 +28,9 @@
                 <div class="col-12">
                     <div class="form-group">
 
-                        <label class="pt-2" for="">Course Name</label>
+                        <label  class="form-label" for="">Course Name</label>
                         <input type="text" class="form-control @error('course_name') is-invalid @enderror"
-                            aria-label="Last name" placeholder="" name="course_name" />
+                            aria-label="Last name" placeholder="Course Name" name="course_name" />
                         @error('course_name')
                             <p class="invalid-feedback">
                                 <strong>{{ $message }} </strong>
@@ -42,7 +42,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <label for="">Description</label>
+                    <label for="" class="form-label">Description</label>
                     <input type="text" class="form-control @error('description') is-invalid @enderror" name="description"
                         placeholder="Your course description">
                     @error('description')
@@ -54,7 +54,7 @@
             </div>
 
 
-            <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a href="{{ route('view_courses') }}" class="btn btn-light">Cencel</a>
             </div>

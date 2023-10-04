@@ -7,18 +7,18 @@
                 <div class="table-responsive white-space-nowrap">
                     <table class="table align-middle">
                         <thead class="table-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th>
                                     <input class="form-check-input" type="checkbox">
                                 </th>
                                 <th> Id</th>
-                                <th>Money</th>
-                                <th>Students Name</th>
+                                <th>Payments</th>
+                                <th>Name</th>
                                 <th>Roll</th>
                                 <th>Registration</th>
-                                <th>Course Name</th>
+                                <th>Course</th>
                                 <th>Gender</th>
-                                <th>Email Address</th>
+                                <th>Email</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -31,7 +31,9 @@
                                     <td>
                                         <a href="javascript:;">{{ $admission->id }}</a>
                                     </td>
-                                    <td>{{ number_format($admission->payments->sum('money')) }}/=</td>
+                                    <td><span
+                                        class="lable-table bg-success-subtle text-success rounded border border-success-subtle font-text2 fw-bold">{{ number_format($admission->payments->sum('money')) }}/=<i
+                                            class="bi bi-check2 ms-2"></i></span></td>
                                     <td>
                                         <a class="d-flex align-items-center gap-3" href="javascript:;">
                                             <div class="customer-pic">

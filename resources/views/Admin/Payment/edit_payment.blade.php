@@ -17,7 +17,7 @@
         </div>
 
         <div class="mb-3">
-            <h1 class="fw-normal">Money</h1>
+            <h1 class="fw-normal">Edit Payment</h1>
             <p class="text-secondary">Enter your money information below</p>
         </div>
 
@@ -43,7 +43,7 @@
             </div>
 
 
-            <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a href="{{ route('view_payments') }}" class="btn btn-light">Cencel</a>
             </div>

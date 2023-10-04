@@ -17,7 +17,7 @@
         </div>
 
         <div class="mb-3">
-            <h1 class="fw-normal">TEACHER ADMISSIONS FORM</h1>
+            <h1 class="fw-normal">TEACHER JOB ADMISSIONS FORM</h1>
             <p class="text-secondary">Enter your admission information below</p>
         </div>
 
@@ -31,28 +31,31 @@
                     @endforeach
                 </div>
             @endif
-            
+
             <h5 class=" pb-2">Teacher Name</h5>
-            
+
             <div class="row gp-3">
                 <div class="col-6">
                     <label class="pt-2 col-form-label" for="">First Name</label>
-                    <input type="text" class="form-control" @error('name')
+                    <input type="text" class="form-control"
+                        @error('name')
                         is invalid
-                    @enderror aria-label="First name" name="name" placeholder="First Name"/>
+                    @enderror
+                        aria-label="First name" name="name" placeholder="First Name" />
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
-                
+
                 <div class="col-6">
                     <label class="pt-2 col-form-label" for="">Last Name</label>
-                    <input type="text" class="form-control" @error('l_name')
+                    <input type="text" class="form-control"
+                        @error('l_name')
                         is invalid
-                    @enderror aria-label="Last name" name="l_name"
-                        placeholder="last Name" />
+                    @enderror
+                        aria-label="Last name" name="l_name" placeholder="last Name" />
                     @error('l_name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -67,29 +70,32 @@
                     <div class="form-group">
 
                         <label class="pt-2 col-form-label" for="">Job Designation</label>
-                        <input type="text" class="form-control" @error('job_designation')
+                        <input type="text" class="form-control"
+                            @error('job_designation')
                             is invalid
-                        @enderror placeholder="Job Designation" name="job_designation" />
+                        @enderror
+                            placeholder="Job Designation" name="job_designation" />
                         @error('job_designation')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
-                
+
                 <div class="col-6">
                     <div class="form-group"> <!-- Date input -->
                         <label class="pt-2 col-form-label" for="">Phone</label>
-                        <input id="postfix0" type="text" class="form-control" @error('phone')
+                        <input id="postfix0" type="text" class="form-control"
+                            @error('phone')
                             is invalid
-                        @enderror placeholder="(000) 000-0000" name="phone" />
+                        @enderror
+                            placeholder="(000) 000-0000" name="phone" />
                         @error('phone')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                        <p id="error-message0" style="color: red;"></p>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -98,14 +104,15 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label class="pt-2 col-form-label" for="">Course Name</label>
-                        <select name="course_id" id="" class="form-control" @error('course_name')
+                        <select name="course_id" id="" class="form-control"
+                            @error('course_name')
                             is invalid
                         @enderror>
-                        @error('course_name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                            @error('course_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                             <option value=""></option>
                             @foreach ($courses as $course)
                                 <option value="{{ $course->id }}">{{ $course->course_name }}</option>
@@ -114,16 +121,17 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="col-6">
                     <div class="form-group">
 
                         <label class="pt-2 col-form-label" for="">Birthday</label>
-                        <input type="date" class="form-control" @error('birthday')
-                           is invalid 
-                        @enderror placeholder="Birthday"
-                            name="birthday" />
+                        <input type="date" class="form-control"
                             @error('birthday')
+                           is invalid 
+                        @enderror
+                            placeholder="Birthday" name="birthday" />
+                        @error('birthday')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -135,21 +143,25 @@
             <div class="row gp-3">
                 <div class="col-6">
                     <label class="pt-2 col-form-label" for="">City</label>
-                    <input type="text" class="form-control" @error('city')
+                    <input type="text" class="form-control"
+                        @error('city')
                         is invalid
-                    @enderror name="city" placeholder="Caty"/>
+                    @enderror name="city"
+                        placeholder="Caty" />
                     @error('city')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
-                
+
                 <div class="col-6">
                     <label class="pt-2 col-form-label" for="">Region</label>
-                    <input type="text" class="form-control" @error('region')
+                    <input type="text" class="form-control"
+                        @error('region')
                         is invalid
-                    @enderror name="region" placeholder="Region"/>
+                    @enderror name="region"
+                        placeholder="Region" />
                     @error('region')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -162,32 +174,34 @@
                 <div class="col-6">
                     <div class="form-group"> <!-- Date input -->
                         <label class="pt-2 col-form-label" for="">Postal / Zip Code</label>
-                        <input id="postfix8" type="number" class="form-control" @error('postal')
-                            is invalid
-                        @enderror placeholder="Zip Code"
-                            name="postal" />
+                        <input id="postfix8" type="number" class="form-control"
                             @error('postal')
+                            is invalid
+                        @enderror
+                            placeholder="Zip Code" name="postal" />
+                        @error('postal')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        <p id="error-message8" style="color: red;"></p>
                     </div>
                 </div>
-                
+
                 <div class="col-6">
                     <div class="form-group">
 
                         <label class="pt-2 col-form-label" for="">Country</label>
-                        <select class="form-control" @error('country')
+                        <select class="form-control"
+                            @error('country')
                             is invalid
-                        @enderror name="country">
-                        @error('country')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
                         @enderror
-                            <option ></option>
+                            name="country">
+                            @error('country')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <option></option>
                             <option value="Bangladesh">Bangladesh</option>
                             <option value="Barbados">Barbados</option>
                             <option value="Belarus">Belarus</option>
@@ -254,14 +268,16 @@
 
             <div class="mb-3">
                 <label class="pt-2 col-form-label" for="">Image</label>
-                <input type="file" class="form-control" @error('image')
+                <input type="file" class="form-control"
+                    @error('image')
                     is invalid
-                @enderror id="recipient-name" name="image" placeholder="Image">
+                @enderror id="recipient-name"
+                    name="image" placeholder="Image">
                 @error('image')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="col-lg-12 col-md-12 col-sm-12">

@@ -17,7 +17,7 @@
         </div>
 
         <div class="mb-3">
-            <h1 class="fw-normal">COURSE FORM</h1>
+            <h1 class="fw-normal">EGIT COURSE</h1>
             <p class="text-secondary">Enter your course information below</p>
         </div>
         
@@ -37,7 +37,7 @@
                 <div class="col-12">
                     <div class="form-group">
 
-                        <label class="pt-2" for="">Course Name</label>
+                        <label class="form-label" for="">Course Name</label>
                         <input type="text" class="form-control" aria-label="Last name" placeholder=""
                             name="course_name" value="{{ $course->course_name }}" />
                     </div>
@@ -46,7 +46,7 @@
            
             <div class="row mb-4">
                 <div class="col-12">
-                    <label for="">Description</label>
+                    <label class="form-label" for="">Description</label>
                     <input type="text" class="form-control" name="description" value="{{ $course->description }}" placeholder="Your course description">
                 </div>
             </div>

@@ -7,6 +7,7 @@ use App\Models\Admission;
 use App\Models\Course;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class admissionController extends Controller
@@ -56,7 +57,6 @@ class admissionController extends Controller
             'city' => 'required',
             'postal' => 'required',
             'email' => 'required', // Adjust validation rules as needed
-            'password' => 'required',
             'role_id' => 'required|',
             'prs_f_name' => 'required|',
             'relationship' => 'required',
@@ -88,15 +88,15 @@ class admissionController extends Controller
             'prs_phone' => $request->prs_phone,
             'image' =>$request->file('image')->store('public/admissions'),
         ]);
-    
-        // Create User record
-        User::create([
+
+        $user=User::create([
+   
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password), // Hash the password
+            'password' => Hash::make($roll), // Hash the password
             'role_id' => $request->role_id,
         ]);
-    
+        dd($user);
         return redirect('view_admissions')->with('success', 'Admission uploaded successfully.');
     }
 
