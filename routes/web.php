@@ -5,6 +5,7 @@ use App\Http\Controllers\course\courseController;
 use App\Http\Controllers\pageController;
 use App\Http\Controllers\payment\paymentController;
 use App\Http\Controllers\teacher\teacherController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -80,3 +81,5 @@ Route::middleware(['role:user','auth' ])->group(function() {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('tests',TestController::class);

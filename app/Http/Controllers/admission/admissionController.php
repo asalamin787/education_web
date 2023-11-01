@@ -96,7 +96,7 @@ class admissionController extends Controller
             'password' => Hash::make($roll), // Hash the password
             'role_id' => $request->role_id,
         ]);
-        dd($user);
+        // dd($user);
         return redirect('view_admissions')->with('success', 'Admission uploaded successfully.');
     }
 
