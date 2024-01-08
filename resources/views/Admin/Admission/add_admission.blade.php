@@ -68,7 +68,7 @@
                             class="form-control @error('course')
                                 is-invalid
                             @enderror">
-                            <option value=""></option>
+                            <option value="">-- Select an option --</option>
                             @foreach ($courses as $course)
                                 <option value="{{ $course->id }}">{{ $course->course_name }}</option>
                             @endforeach
@@ -108,7 +108,7 @@
                                 is-invalid
                             @enderror"
                             name="gender" placeholder="Gender">
-                            <option></option>
+                            <option value="">-- Select an option --</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
